@@ -84,31 +84,31 @@ export default function Header() {
             </Link>
 
             {productDropdown && (
-              <div className="absolute top-full left-0 w-64 bg-white rounded-xl shadow-xl border border-slate-100 py-2">
+              <div className="absolute top-full left-0 w-72 bg-white rounded-xl shadow-xl border border-slate-100 py-2">
                 <Link
-                  href="/san-pham#muc-in-ong-dong"
+                  href="/san-pham/muc-in-ong-dong-vuong-phat"
                   className="block px-4 py-2.5 text-sm hover:bg-sky-50 hover:text-sky-700 transition"
                 >
-                  <div className="font-semibold text-slate-800">Mực in ống đồng</div>
+                  <div className="font-semibold text-slate-800">Mực in ống đồng Vượng Phát</div>
                   <div className="text-xs text-slate-500">Màng PE, PP, PVC màng co, PET</div>
                 </Link>
                 <Link
-                  href="/san-pham#solvent-dye"
+                  href="/san-pham/muc-in-chai-lo-my-pham"
                   className="block px-4 py-2.5 text-sm hover:bg-sky-50 hover:text-sky-700 transition"
                 >
-                  <div className="font-semibold text-slate-800">Mực in Solvent Dye</div>
-                  <div className="text-xs text-slate-500">Sơn phủ chai lọ mỹ phẩm & gỗ</div>
+                  <div className="font-semibold text-slate-800">Mực in chai lọ mỹ phẩm</div>
+                  <div className="text-xs text-slate-500">Tinh màu Solvent Dye phủ thủy tinh & gỗ</div>
                 </Link>
                 <Link
                   href="/san-pham#may-bom-muc"
-                  className="block px-4 py-2.5 text-sm hover:bg-sky-50 hover:text-sky-700 transition"
+                  className="block px-4 py-2.5 text-sm hover:bg-sky-50 hover:text-sky-700 transition border-t border-slate-50"
                 >
                   <div className="font-semibold text-slate-800">Máy bơm chiết rót mực</div>
                   <div className="text-xs text-slate-500">Bơm màng khí nén từ phuy</div>
                 </Link>
                 <Link
                   href="/san-pham#dung-moi"
-                  className="block px-4 py-2.5 text-sm hover:bg-sky-50 hover:text-sky-700 transition border-t border-slate-50"
+                  className="block px-4 py-2.5 text-sm hover:bg-sky-50 hover:text-sky-700 transition"
                 >
                   <div className="font-semibold text-slate-800">Dung môi phụ trợ</div>
                   <div className="text-xs text-slate-500">Pha mực & tẩy rửa trục in</div>
@@ -181,13 +181,31 @@ export default function Header() {
             >
               Giới thiệu
             </Link>
-            <Link
-              href="/san-pham"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-3 px-2 border-b border-slate-100 hover:text-sky-600 hover:bg-slate-50 rounded-lg transition"
-            >
-              Sản phẩm
-            </Link>
+            <div className="border-b border-slate-100 pb-2">
+              <Link
+                href="/san-pham"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block py-2 px-2 font-bold hover:text-sky-600 hover:bg-slate-50 rounded-lg transition"
+              >
+                Sản phẩm
+              </Link>
+              <div className="pl-3 space-y-1 text-sm font-normal text-slate-600">
+                <Link
+                  href="/san-pham/muc-in-ong-dong-vuong-phat"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block py-1.5 px-2 hover:text-sky-600 hover:bg-slate-50 rounded-md transition text-xs font-semibold text-sky-700"
+                >
+                  ✦ Mực in ống đồng Vượng Phát
+                </Link>
+                <Link
+                  href="/san-pham/muc-in-chai-lo-my-pham"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block py-1.5 px-2 hover:text-sky-600 hover:bg-slate-50 rounded-md transition text-xs font-semibold text-purple-700"
+                >
+                  ✦ Mực in chai lọ mỹ phẩm (Solvent Dye)
+                </Link>
+              </div>
+            </div>
             <Link
               href="/ung-dung"
               onClick={() => setMobileMenuOpen(false)}

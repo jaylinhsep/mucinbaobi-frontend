@@ -81,13 +81,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/san-pham#muc-in-ong-dong" className="hover:text-sky-400 transition">
-                  Mực in ống đồng màng PVC co
+                <Link href="/san-pham/muc-in-ong-dong-vuong-phat" className="hover:text-sky-400 transition font-medium">
+                  Mực in ống đồng Vượng Phát
                 </Link>
               </li>
               <li>
-                <Link href="/san-pham#muc-in-ong-dong" className="hover:text-sky-400 transition">
-                  Mực in ống đồng Non-Toluene
+                <Link href="/san-pham/muc-in-chai-lo-my-pham" className="hover:text-purple-400 transition font-medium">
+                  Mực in chai lọ mỹ phẩm (Solvent Dye)
                 </Link>
               </li>
               <li>

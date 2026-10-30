@@ -32,6 +32,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/san-pham/muc-in-ong-dong-vuong-phat`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/san-pham/muc-in-chai-lo-my-pham`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1.0,
+    },
+    {
       url: `${baseUrl}/ung-dung`,
       lastModified: new Date(),
       changeFrequency: "weekly",
