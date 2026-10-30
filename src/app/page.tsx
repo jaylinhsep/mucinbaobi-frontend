@@ -339,7 +339,7 @@ export default async function HomePage() {
                         {new Date(post.date).toLocaleDateString("vi-VN")}
                       </span>
                       <h3 className="font-bold text-slate-900 text-sm hover:text-sky-600 transition line-clamp-2 mb-2 leading-snug">
-                        <Link href={`/blog/${post.slug}`}>{post.title.rendered}</Link>
+                        <Link href={`/${post.slug}`}>{post.title.rendered}</Link>
                       </h3>
                       <div
                         className="text-xs text-slate-500 line-clamp-2 leading-relaxed"
@@ -351,7 +351,7 @@ export default async function HomePage() {
                   </div>
                   <div className="p-5 pt-0 border-t border-slate-100 mt-3 flex items-center justify-between">
                     <Link
-                      href={`/blog/${post.slug}`}
+                      href={`/${post.slug}`}
                       className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-600 hover:text-sky-700"
                     >
                       <span>Đọc tiếp</span>

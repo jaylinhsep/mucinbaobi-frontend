@@ -2,21 +2,39 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPosts, getPostBySlug } from "@/lib/wp";
-import { Calendar, ArrowLeft, Phone, Share2, Tag, BookOpen } from "lucide-react";
+import { Calendar, ArrowLeft, Phone, Tag, BookOpen, Share2 } from "lucide-react";
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
+const RESERVED_SLUGS = [
+  "gioi-thieu",
+  "san-pham",
+  "ung-dung",
+  "lien-he",
+  "blog",
+  "favicon.ico",
+  "robots.txt",
+  "sitemap.xml",
+];
+
 export async function generateStaticParams() {
   const posts = await getPosts();
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  return posts
+    .filter((post) => !RESERVED_SLUGS.includes(post.slug))
+    .map((post) => ({
+      slug: post.slug,
+    }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+
+  if (RESERVED_SLUGS.includes(slug)) {
+    return {};
+  }
+
   const post = await getPostBySlug(slug);
 
   if (!post) {
@@ -28,20 +46,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .replace(/&nbsp;/g, " ")
     .slice(0, 160);
 
+  const canonicalUrl = `https://mucinbaobi.com/${slug}`;
+
   return {
-    title: post.title.rendered,
+    title: `${post.title.rendered} | Vượng Phát Ink`,
     description: cleanDescription,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: `${post.title.rendered} | Vượng Phát Ink`,
       description: cleanDescription,
-      url: `https://mucinbaobi.com/blog/${slug}`,
+      url: canonicalUrl,
       type: "article",
     },
   };
 }
 
-export default async function SingleBlogPage({ params }: Props) {
+export default async function SinglePostPage({ params }: Props) {
   const { slug } = await params;
+
+  if (RESERVED_SLUGS.includes(slug)) {
+    notFound();
+  }
+
   const post = await getPostBySlug(slug);
 
   if (!post) {
@@ -49,7 +77,9 @@ export default async function SingleBlogPage({ params }: Props) {
   }
 
   const allPosts = await getPosts();
-  const relatedPosts = allPosts.filter((p) => p.slug !== slug).slice(0, 3);
+  const relatedPosts = allPosts
+    .filter((p) => p.slug !== slug && !RESERVED_SLUGS.includes(p.slug))
+    .slice(0, 3);
 
   return (
     <div className="py-12 sm:py-20 bg-slate-50 min-h-screen">
@@ -144,7 +174,7 @@ export default async function SingleBlogPage({ params }: Props) {
                 {relatedPosts.map((rel) => (
                   <div key={rel.id} className="group border-b border-slate-100 pb-3 last:border-0 last:pb-0">
                     <Link
-                      href={`/blog/${rel.slug}`}
+                      href={`/${rel.slug}`}
                       className="text-sm font-semibold text-slate-800 group-hover:text-sky-600 transition line-clamp-2 leading-snug"
                     >
                       {rel.title.rendered}

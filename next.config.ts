@@ -22,6 +22,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/blog/:slug",
+        destination: "/:slug",
+        permanent: true, // HTTP 301 permanent redirect for SEO preservation
+      },
+    ];
+  },
 };
 
 export default nextConfig;

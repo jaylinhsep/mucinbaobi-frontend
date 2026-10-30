@@ -89,7 +89,7 @@ export default async function BlogPage() {
                     </div>
 
                     <h2 className="text-lg font-bold text-slate-900 group-hover:text-sky-600 transition leading-snug line-clamp-2">
-                      <Link href={`/blog/${post.slug}`}>{post.title.rendered}</Link>
+                      <Link href={`/${post.slug}`}>{post.title.rendered}</Link>
                     </h2>
 
                     <p className="text-slate-600 text-sm leading-relaxed line-clamp-3">
@@ -100,7 +100,7 @@ export default async function BlogPage() {
 
                 <div className="p-6 pt-0 border-t border-slate-100 mt-4 flex items-center justify-between">
                   <Link
-                    href={`/blog/${post.slug}`}
+                    href={`/${post.slug}`}
                     className="inline-flex items-center gap-2 text-xs font-bold text-sky-600 group-hover:text-sky-700 group-hover:translate-x-1 transition-transform"
                   >
                     <span>Xem chi tiết bài viết</span>

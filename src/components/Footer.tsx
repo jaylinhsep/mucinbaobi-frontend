@@ -120,27 +120,27 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5 text-sm text-slate-400">
               <li>
-                <Link href="/blog/muc-in-ong-dong-non-toluene-la-gi" className="hover:text-sky-400 transition">
+                <Link href="/muc-in-ong-dong-non-toluene-la-gi" className="hover:text-sky-400 transition">
                   Mực in Non-Toluene là gì & Báo giá
                 </Link>
               </li>
               <li>
-                <Link href="/blog/mang-pvc-co-ung-dung-uu-diem-va-quy-trinh-san-xuat" className="hover:text-sky-400 transition">
+                <Link href="/mang-pvc-co-ung-dung-uu-diem-va-quy-trinh-san-xuat" className="hover:text-sky-400 transition">
                   Màng PVC Co: Ứng dụng & Quy trình
                 </Link>
               </li>
               <li>
-                <Link href="/blog/xu-ly-corona-mang-bao-bi-nhua-trong-nganh-in-an" className="hover:text-sky-400 transition">
+                <Link href="/xu-ly-corona-mang-bao-bi-nhua-trong-nganh-in-an" className="hover:text-sky-400 transition">
                   Xử lý Corona màng bao bì nhựa
                 </Link>
               </li>
               <li>
-                <Link href="/blog/dung-moi-pha-muc-in-lua-va-1-so-luu-y" className="hover:text-sky-400 transition">
+                <Link href="/dung-moi-pha-muc-in-lua-va-1-so-luu-y" className="hover:text-sky-400 transition">
                   Dung môi pha mực in và lưu ý
                 </Link>
               </li>
               <li>
-                <Link href="/blog/cac-linh-kien-tren-may-in-truc-ong-dong" className="hover:text-sky-400 transition">
+                <Link href="/cac-linh-kien-tren-may-in-truc-ong-dong" className="hover:text-sky-400 transition">
                   Linh kiện trên máy in trục ống đồng
                 </Link>
               </li>
