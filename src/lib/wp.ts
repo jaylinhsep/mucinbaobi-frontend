@@ -1,4 +1,4 @@
-import postsData from "@/data/posts.json";
+﻿import postsData from "@/data/posts.json";
 import pagesData from "@/data/pages.json";
 import categoriesData from "@/data/categories.json";
 import mediaData from "@/data/media.json";
@@ -35,13 +35,13 @@ export interface WPCategory {
   count: number;
 }
 
-const WP_API_URL = "https://mucinbaobi.com/wp-json/wp/v2";
+const WP_API_URL = "https://admin.mucinbaobi.com/wp-json/wp/v2";
 
 // Helper to get image URL from media id fallback
 export function getMediaUrlById(id?: number): string {
-  if (!id) return "https://mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink1.jpg";
+  if (!id) return "https://admin.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink1.jpg";
   const found = (mediaData as Array<{ id: number; source_url: string }>).find((m) => m.id === id);
-  return found?.source_url || "https://mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink1.jpg";
+  return found?.source_url || "https://admin.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink1.jpg";
 }
 
 // Helper to get thumbnail image URL for a post
@@ -58,7 +58,7 @@ export function getPostThumbnail(post: WPPost): string {
   if (match && match[1]) {
     return match[1];
   }
-  return "https://mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink1.jpg";
+  return "https://admin.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink1.jpg";
 }
 
 // Fetch all posts with live API fallback
@@ -157,7 +157,7 @@ export const PRODUCTS: ProductItem[] = [
     ],
     applications: "In tem nhãn màng co chai lọ nước ngọt, mỹ phẩm, bình nước, bao bì đóng gói thực phẩm.",
     packaging: "Thùng 18kg / Phuy 200kg",
-    image: "https://mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink1.jpg",
+    image: "https://admin.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink1.jpg",
     badge: "Bán chạy nhất",
   },
   {
@@ -175,7 +175,7 @@ export const PRODUCTS: ProductItem[] = [
     ],
     applications: "Bao bì thực phẩm, bao bì dược phẩm, túi bánh kẹo, xuất khẩu quốc tế.",
     packaging: "Thùng 18kg / 20kg",
-    image: "https://mucinbaobi.com/wp-content/uploads/2024/11/muc-in-ong-dong-non-toluene.webp",
+    image: "https://admin.mucinbaobi.com/wp-content/uploads/2024/11/muc-in-ong-dong-non-toluene.webp",
     badge: "Đạt chuẩn Châu Âu",
   },
   {
@@ -193,7 +193,7 @@ export const PRODUCTS: ProductItem[] = [
     ],
     applications: "Túi xốp, bao bì màng ghép phức hợp, túi đựng gạo, bao phân bón, túi siêu thị.",
     packaging: "Thùng 18kg / Phuy 180kg",
-    image: "https://mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink2.webp",
+    image: "https://admin.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink2.webp",
   },
   {
     id: "p4",
@@ -210,7 +210,7 @@ export const PRODUCTS: ProductItem[] = [
     ],
     applications: "Chai lọ mỹ phẩm sang trọng, đồ thủ công mỹ nghệ, bề mặt kính, vecni sơn gỗ.",
     packaging: "Chai 1 lít / Can 5 lít / Thùng 25kg",
-    image: "https://mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink3.webp",
+    image: "https://admin.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink3.webp",
     badge: "Cao cấp",
   },
   {
@@ -228,7 +228,7 @@ export const PRODUCTS: ProductItem[] = [
     ],
     applications: "Xưởng in ống đồng bao bì, xưởng pha chế dung môi, nhà máy sản xuất sơn.",
     packaging: "Bộ máy tiêu chuẩn kèm ống hút, van điều áp",
-    image: "https://mucinbaobi.com/wp-content/uploads/2025/08/may-bom-chiet-rot-muc-tu-phuy-vuong-phat-ink.webp",
+    image: "https://admin.mucinbaobi.com/wp-content/uploads/2025/08/may-bom-chiet-rot-muc-tu-phuy-vuong-phat-ink.webp",
   },
   {
     id: "p6",
@@ -245,6 +245,6 @@ export const PRODUCTS: ProductItem[] = [
     ],
     applications: "Pha mực in flexo, ống đồng, vệ sinh máng mực, con lăn, trục in.",
     packaging: "Can 20L / Phuy 200L / Tank 1000L",
-    image: "https://mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink4.webp",
+    image: "https://admin.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink4.webp",
   },
 ];

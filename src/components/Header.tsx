@@ -9,6 +9,11 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [productDropdown, setProductDropdown] = useState(false);
 
+  const toggleMobileMenu = (e: React.MouseEvent | React.TouchEvent) => {
+    e.stopPropagation();
+    setMobileMenuOpen((prev) => !prev);
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all">
       {/* Top Bar for contact info */}
@@ -38,7 +43,7 @@ export default function Header() {
       </div>
 
       {/* Main Navbar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between relative">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-3 group">
           <div className="relative w-12 h-12 shrink-0 group-hover:scale-105 transition-transform">
@@ -144,10 +149,11 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Mobile Hamburger Button with enhanced touch target & cursor pointer */}
+        {/* Mobile Hamburger Button */}
         <button
           type="button"
-          onClick={() => setMobileMenuOpen((prev) => !prev)}
+          onClick={toggleMobileMenu}
+          onTouchEnd={toggleMobileMenu}
           className="lg:hidden p-3 -mr-2 text-slate-800 hover:text-sky-600 focus:outline-none cursor-pointer select-none touch-manipulation z-50 relative"
           aria-label="Toggle menu"
         >
