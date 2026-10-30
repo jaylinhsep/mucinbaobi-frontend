@@ -38,10 +38,10 @@ export default function Header() {
       </div>
 
       {/* Main Navbar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 h-18 sm:h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-3 sm:py-0 sm:h-20 flex items-center justify-between">
         {/* Brand Logo - Compact and flexible on mobile to prevent overflow */}
-        <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group min-w-0 pr-2">
-          <div className="relative w-10 h-10 sm:w-12 sm:h-12 shrink-0 group-hover:scale-105 transition-transform">
+        <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink min-w-0 pr-1">
+          <div className="relative w-9 h-9 sm:w-12 sm:h-12 shrink-0 group-hover:scale-105 transition-transform">
             <Image
               src="/logo.png"
               alt="Logo Vượng Phát Ink"
@@ -50,11 +50,11 @@ export default function Header() {
               priority
             />
           </div>
-          <div className="flex flex-col min-w-0">
-            <span className="font-extrabold text-lg sm:text-2xl tracking-tight text-slate-900 group-hover:text-sky-600 transition truncate">
+          <div className="flex flex-col min-w-0 justify-center">
+            <span className="font-extrabold text-base sm:text-2xl tracking-tight text-slate-900 group-hover:text-sky-600 transition leading-tight">
               VƯỢNG PHÁT <span className="text-sky-600">INK</span>
             </span>
-            <span className="text-[10px] sm:text-[11px] font-medium tracking-tight sm:tracking-wide uppercase text-slate-500 truncate">
+            <span className="text-[10px] sm:text-[11px] font-semibold tracking-tight uppercase text-slate-500 leading-tight mt-0.5">
               Mực In Bao Bì & Dung Môi
             </span>
           </div>
@@ -144,14 +144,19 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Mobile Hamburger Button */}
+        {/* Mobile Hamburger Button - 100% iOS Safari & Android Compatible */}
         <button
           type="button"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden p-2 text-slate-800 hover:text-sky-600 focus:outline-none cursor-pointer shrink-0"
+          onClick={() => setMobileMenuOpen((prev) => !prev)}
+          className="lg:hidden p-2.5 -mr-1.5 text-slate-800 hover:text-sky-600 active:bg-slate-100 rounded-lg focus:outline-none cursor-pointer shrink-0 touch-manipulation select-none"
           aria-label="Toggle menu"
+          aria-expanded={mobileMenuOpen}
         >
-          {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+          {mobileMenuOpen ? (
+            <X className="w-7 h-7 pointer-events-none" />
+          ) : (
+            <Menu className="w-7 h-7 pointer-events-none" />
+          )}
         </button>
       </div>
 
