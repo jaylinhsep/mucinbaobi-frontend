@@ -144,10 +144,11 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Mobile Hamburger Button */}
+        {/* Mobile Hamburger Button with enhanced touch target & cursor pointer */}
         <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden p-2 text-slate-700 hover:text-sky-600 focus:outline-none"
+          type="button"
+          onClick={() => setMobileMenuOpen((prev) => !prev)}
+          className="lg:hidden p-3 -mr-2 text-slate-800 hover:text-sky-600 focus:outline-none cursor-pointer select-none touch-manipulation z-50 relative"
           aria-label="Toggle menu"
         >
           {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
@@ -156,40 +157,40 @@ export default function Header() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-slate-200 bg-white px-6 py-6 space-y-4 shadow-xl">
+        <div className="lg:hidden border-t border-slate-200 bg-white px-6 py-6 space-y-4 shadow-2xl relative z-40 animate-in fade-in slide-in-from-top-2 duration-150">
           <nav className="flex flex-col space-y-3 font-medium text-slate-700 text-base">
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-2 border-b border-slate-100 hover:text-sky-600"
+              className="py-2.5 border-b border-slate-100 hover:text-sky-600 active:text-sky-700 transition"
             >
               Trang chủ
             </Link>
             <Link
               href="/gioi-thieu"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-2 border-b border-slate-100 hover:text-sky-600"
+              className="py-2.5 border-b border-slate-100 hover:text-sky-600 active:text-sky-700 transition"
             >
               Giới thiệu
             </Link>
             <Link
               href="/san-pham"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-2 border-b border-slate-100 hover:text-sky-600"
+              className="py-2.5 border-b border-slate-100 hover:text-sky-600 active:text-sky-700 transition"
             >
               Sản phẩm
             </Link>
             <Link
               href="/blog"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-2 border-b border-slate-100 hover:text-sky-600"
+              className="py-2.5 border-b border-slate-100 hover:text-sky-600 active:text-sky-700 transition"
             >
               Tin tức & Kỹ thuật
             </Link>
             <Link
               href="/lien-he"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-2 hover:text-sky-600"
+              className="py-2.5 hover:text-sky-600 active:text-sky-700 transition"
             >
               Liên hệ
             </Link>
@@ -197,15 +198,15 @@ export default function Header() {
           <div className="pt-4 flex flex-col gap-3">
             <a
               href="tel:0947676021"
-              className="w-full text-center py-3 rounded-lg bg-slate-900 text-white font-semibold flex items-center justify-center gap-2"
+              className="w-full text-center py-3.5 rounded-xl bg-slate-900 text-white font-semibold flex items-center justify-center gap-2 active:scale-95 transition"
             >
               <Phone className="w-4 h-4 text-sky-400" />
-              Gọi Hotline: 094 76 76 021
+              <span>Gọi Hotline: 094 76 76 021</span>
             </a>
             <Link
               href="/lien-he"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center py-3 rounded-lg bg-sky-600 text-white font-semibold"
+              className="w-full text-center py-3.5 rounded-xl bg-sky-600 text-white font-semibold active:scale-95 transition"
             >
               Gửi yêu cầu báo giá
             </Link>
