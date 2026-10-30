@@ -76,6 +76,11 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5 text-sm text-slate-400">
               <li>
+                <Link href="/ung-dung" className="hover:text-sky-300 transition font-semibold text-sky-400">
+                  ✦ Ứng dụng mực in ống đồng & bao bì
+                </Link>
+              </li>
+              <li>
                 <Link href="/san-pham#muc-in-ong-dong" className="hover:text-sky-400 transition">
                   Mực in ống đồng màng PVC co
                 </Link>

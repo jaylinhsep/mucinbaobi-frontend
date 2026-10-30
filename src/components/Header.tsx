@@ -117,6 +117,9 @@ export default function Header() {
             )}
           </div>
 
+          <Link href="/ung-dung" className="hover:text-sky-600 transition">
+            Ứng dụng
+          </Link>
           <Link href="/blog" className="hover:text-sky-600 transition">
             Tin tức & Kỹ thuật
           </Link>
@@ -184,6 +187,13 @@ export default function Header() {
               className="py-3 px-2 border-b border-slate-100 hover:text-sky-600 hover:bg-slate-50 rounded-lg transition"
             >
               Sản phẩm
+            </Link>
+            <Link
+              href="/ung-dung"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-3 px-2 border-b border-slate-100 hover:text-sky-600 hover:bg-slate-50 rounded-lg transition"
+            >
+              Ứng dụng
             </Link>
             <Link
               href="/blog"
