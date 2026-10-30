@@ -12,7 +12,7 @@ import {
   Cpu,
   BookOpen,
 } from "lucide-react";
-import { PRODUCTS, getPosts } from "@/lib/wp";
+import { PRODUCTS, getPosts, getPostThumbnail } from "@/lib/wp";
 import QuoteForm from "@/components/QuoteForm";
 
 export default async function HomePage() {
@@ -26,7 +26,7 @@ export default async function HomePage() {
         <div className="absolute inset-0 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:24px_24px] opacity-15"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Column: Heading and CTAs */}
+            {/* Left Column */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-400/30 text-sky-300 text-xs sm:text-sm font-semibold tracking-wide">
                 <Sparkles className="w-4 h-4 text-sky-400" />
@@ -41,7 +41,6 @@ export default async function HomePage() {
                 Vượng Phát Ink chuyên sản xuất các dòng mực in ống đồng cao cấp trên màng <strong className="text-white">PE, PP, PVC màng co, PET, OPP</strong>, mực <strong className="text-white">Non-Toluene</strong> an toàn thực phẩm, và tinh màu <strong className="text-white">Solvent Dye</strong> cho phủ chai lọ mỹ phẩm sang trọng.
               </p>
 
-              {/* Bullet points */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-sm text-slate-300">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -61,7 +60,6 @@ export default async function HomePage() {
                 </div>
               </div>
 
-              {/* CTAs */}
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
                 <Link
                   href="/san-pham"
@@ -81,7 +79,7 @@ export default async function HomePage() {
               </div>
             </div>
 
-            {/* Right Column: Hero Graphic Card */}
+            {/* Right Column */}
             <div className="lg:col-span-5">
               <div className="relative rounded-3xl bg-gradient-to-b from-slate-800/90 to-slate-900/90 p-6 sm:p-8 border border-slate-700/60 shadow-2xl backdrop-blur-xl">
                 <div className="flex items-center justify-between pb-6 border-b border-slate-700/60">
@@ -99,7 +97,6 @@ export default async function HomePage() {
                   </span>
                 </div>
 
-                {/* Hero Stats */}
                 <div className="grid grid-cols-2 gap-4 py-6">
                   <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
                     <div className="text-2xl font-extrabold text-sky-400">100%</div>
@@ -159,9 +156,8 @@ export default async function HomePage() {
             {PRODUCTS.map((prod) => (
               <div
                 key={prod.id}
-                className="group bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
+                className="group bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
               >
-                {/* Image Box */}
                 <div className="relative h-56 w-full bg-slate-100 overflow-hidden">
                   <Image
                     src={prod.image}
@@ -181,7 +177,6 @@ export default async function HomePage() {
                   </span>
                 </div>
 
-                {/* Content */}
                 <div className="p-6 flex-1 flex flex-col justify-between">
                   <div>
                     <h3 className="font-bold text-lg text-slate-900 group-hover:text-sky-600 transition mb-2">
@@ -280,7 +275,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* TECHNICAL ARTICLES / BLOG PREVIEW */}
+      {/* TECHNICAL ARTICLES / BLOG PREVIEW WITH THUMBNAILS */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
@@ -303,36 +298,50 @@ export default async function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {recentPosts.map((post) => (
-              <article
-                key={post.id}
-                className="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-md transition flex flex-col justify-between p-5"
-              >
-                <div>
-                  <span className="inline-block text-[11px] font-semibold text-sky-600 bg-sky-50 px-2.5 py-1 rounded-md mb-3">
-                    {new Date(post.date).toLocaleDateString("vi-VN")}
-                  </span>
-                  <h3 className="font-bold text-slate-900 text-base hover:text-sky-600 transition line-clamp-2 mb-2 leading-snug">
-                    <Link href={`/blog/${post.slug}`}>{post.title.rendered}</Link>
-                  </h3>
-                  <div
-                    className="text-xs text-slate-500 line-clamp-3 leading-relaxed mb-4"
-                    dangerouslySetInnerHTML={{
-                      __html: post.excerpt.rendered.replace(/<[^>]+>/g, ""),
-                    }}
-                  />
-                </div>
-                <div className="pt-3 border-t border-slate-100">
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-600 hover:text-sky-700"
-                  >
-                    <span>Đọc tiếp</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </article>
-            ))}
+            {recentPosts.map((post) => {
+              const thumbnail = getPostThumbnail(post);
+              return (
+                <article
+                  key={post.id}
+                  className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-md transition flex flex-col justify-between group"
+                >
+                  <div>
+                    <div className="relative h-44 w-full bg-slate-100 overflow-hidden">
+                      <Image
+                        src={thumbnail}
+                        alt={post.title.rendered}
+                        fill
+                        className="object-cover group-hover:scale-105 transition duration-500"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      />
+                    </div>
+                    <div className="p-5">
+                      <span className="inline-block text-[11px] font-semibold text-sky-600 bg-sky-50 px-2.5 py-1 rounded-md mb-2">
+                        {new Date(post.date).toLocaleDateString("vi-VN")}
+                      </span>
+                      <h3 className="font-bold text-slate-900 text-sm hover:text-sky-600 transition line-clamp-2 mb-2 leading-snug">
+                        <Link href={`/blog/${post.slug}`}>{post.title.rendered}</Link>
+                      </h3>
+                      <div
+                        className="text-xs text-slate-500 line-clamp-2 leading-relaxed"
+                        dangerouslySetInnerHTML={{
+                          __html: post.excerpt.rendered.replace(/<[^>]+>/g, ""),
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className="p-5 pt-0 border-t border-slate-100 mt-3 flex items-center justify-between">
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-600 hover:text-sky-700"
+                    >
+                      <span>Đọc tiếp</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>

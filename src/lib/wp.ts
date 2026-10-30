@@ -39,9 +39,26 @@ const WP_API_URL = "https://mucinbaobi.com/wp-json/wp/v2";
 
 // Helper to get image URL from media id fallback
 export function getMediaUrlById(id?: number): string {
-  if (!id) return "/images/placeholder.webp";
+  if (!id) return "https://mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink1.jpg";
   const found = (mediaData as Array<{ id: number; source_url: string }>).find((m) => m.id === id);
-  return found?.source_url || "/images/placeholder.webp";
+  return found?.source_url || "https://mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink1.jpg";
+}
+
+// Helper to get thumbnail image URL for a post
+export function getPostThumbnail(post: WPPost): string {
+  if (post._embedded?.["wp:featuredmedia"]?.[0]?.source_url) {
+    return post._embedded["wp:featuredmedia"][0].source_url;
+  }
+  if (post.featured_media && post.featured_media > 0) {
+    const found = (mediaData as Array<{ id: number; source_url: string }>).find((m) => m.id === post.featured_media);
+    if (found && found.source_url) return found.source_url;
+  }
+  // Extract first image from HTML content
+  const match = post.content?.rendered?.match(/<img[^>]+src=["']([^"']+)["']/i);
+  if (match && match[1]) {
+    return match[1];
+  }
+  return "https://mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink1.jpg";
 }
 
 // Fetch all posts with live API fallback

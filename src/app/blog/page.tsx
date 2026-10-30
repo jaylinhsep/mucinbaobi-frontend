@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getPosts, getCategories } from "@/lib/wp";
+import Image from "next/image";
+import { getPosts, getCategories, getPostThumbnail } from "@/lib/wp";
 import { Calendar, ArrowRight, BookOpen, Tag } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -44,42 +45,60 @@ export default async function BlogPage() {
             ))}
         </div>
 
-        {/* Posts Grid */}
+        {/* Posts Grid with Thumbnails */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post) => {
             const cleanExcerpt = post.excerpt.rendered
               .replace(/<[^>]+>/g, "")
               .replace(/&nbsp;/g, " ")
-              .slice(0, 160);
+              .slice(0, 140);
+            const thumbnail = getPostThumbnail(post);
 
             return (
               <article
                 key={post.id}
-                className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group p-6 sm:p-7"
+                className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
               >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between text-xs text-slate-500">
-                    <span className="flex items-center gap-1.5 bg-sky-50 text-sky-700 px-3 py-1 rounded-md font-semibold">
-                      <Calendar className="w-3.5 h-3.5" />
-                      {new Date(post.date).toLocaleDateString("vi-VN", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
+                <div>
+                  {/* Thumbnail Image Header */}
+                  <div className="relative h-52 w-full bg-slate-100 overflow-hidden">
+                    <Image
+                      src={thumbnail}
+                      alt={post.title.rendered}
+                      fill
+                      className="object-cover group-hover:scale-105 transition duration-500"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
+                    <span className="absolute bottom-3 left-4 text-xs font-medium text-white/90 bg-slate-900/60 backdrop-blur-sm px-2.5 py-1 rounded-md">
+                      Kỹ thuật in ấn
                     </span>
-                    <span className="text-slate-400">Vượng Phát Ink</span>
                   </div>
 
-                  <h2 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-sky-600 transition leading-snug">
-                    <Link href={`/blog/${post.slug}`}>{post.title.rendered}</Link>
-                  </h2>
+                  <div className="p-6 space-y-3">
+                    <div className="flex items-center justify-between text-xs text-slate-500">
+                      <span className="flex items-center gap-1.5 bg-sky-50 text-sky-700 px-2.5 py-1 rounded-md font-semibold">
+                        <Calendar className="w-3.5 h-3.5" />
+                        {new Date(post.date).toLocaleDateString("vi-VN", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
+                      </span>
+                      <span className="text-slate-400">Vượng Phát Ink</span>
+                    </div>
 
-                  <p className="text-slate-600 text-sm leading-relaxed line-clamp-3">
-                    {cleanExcerpt}...
-                  </p>
+                    <h2 className="text-lg font-bold text-slate-900 group-hover:text-sky-600 transition leading-snug line-clamp-2">
+                      <Link href={`/blog/${post.slug}`}>{post.title.rendered}</Link>
+                    </h2>
+
+                    <p className="text-slate-600 text-sm leading-relaxed line-clamp-3">
+                      {cleanExcerpt}...
+                    </p>
+                  </div>
                 </div>
 
-                <div className="pt-6 border-t border-slate-100 mt-6 flex items-center justify-between">
+                <div className="p-6 pt-0 border-t border-slate-100 mt-4 flex items-center justify-between">
                   <Link
                     href={`/blog/${post.slug}`}
                     className="inline-flex items-center gap-2 text-xs font-bold text-sky-600 group-hover:text-sky-700 group-hover:translate-x-1 transition-transform"
