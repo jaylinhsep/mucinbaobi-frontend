@@ -22,13 +22,28 @@ export default async function HomePage() {
   return (
     <div>
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white py-20 lg:py-28">
-        <div className="absolute inset-0 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:24px_24px] opacity-15"></div>
+      <section className="relative overflow-hidden bg-slate-950 text-white py-20 lg:py-28 border-b border-slate-800">
+        {/* Background Industrial Rotogravure Printing Press with atmospheric dark gradient overlay */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/rotogravure-press.png"
+            alt="Dàn máy in trục ống đồng công nghiệp Vượng Phát Ink"
+            fill
+            className="object-cover object-right md:object-center opacity-30 scale-105"
+            priority
+            sizes="100vw"
+          />
+          {/* Multi-layered cinematic gradients to ensure high contrast, readability and modern tech atmosphere */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/60"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:28px_28px] opacity-15"></div>
+        </div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Column */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-400/30 text-sky-300 text-xs sm:text-sm font-semibold tracking-wide">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-400/30 text-sky-300 text-xs sm:text-sm font-semibold tracking-wide backdrop-blur-md">
                 <Sparkles className="w-4 h-4 text-sky-400" />
                 <span>Công nghệ Đài Loan tiên tiến • Chuẩn xuất khẩu Châu Âu</span>
               </div>
@@ -71,7 +86,7 @@ export default async function HomePage() {
 
                 <a
                   href="tel:0947676021"
-                  className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/90 border border-slate-700 text-slate-200 font-semibold flex items-center justify-center gap-2 transition"
+                  className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-700/80 text-slate-200 font-semibold flex items-center justify-center gap-2 backdrop-blur-md transition"
                 >
                   <PhoneCall className="w-4 h-4 text-sky-400" />
                   <span>094 76 76 021 (Hotline)</span>
@@ -79,9 +94,9 @@ export default async function HomePage() {
               </div>
             </div>
 
-            {/* Right Column */}
+            {/* Right Column: Hero Graphic Card with Glassmorphism */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-3xl bg-gradient-to-b from-slate-800/90 to-slate-900/90 p-6 sm:p-8 border border-slate-700/60 shadow-2xl backdrop-blur-xl">
+              <div className="relative rounded-3xl bg-slate-900/85 p-6 sm:p-8 border border-sky-500/20 shadow-2xl backdrop-blur-xl hover:border-sky-500/40 transition duration-300">
                 <div className="flex items-center justify-between pb-6 border-b border-slate-700/60">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center">
@@ -98,19 +113,19 @@ export default async function HomePage() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 py-6">
-                  <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
+                  <div className="bg-slate-800/60 p-4 rounded-xl border border-slate-700/50">
                     <div className="text-2xl font-extrabold text-sky-400">100%</div>
                     <div className="text-xs text-slate-300 font-medium mt-1">Công nghệ Đài Loan</div>
                   </div>
-                  <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
+                  <div className="bg-slate-800/60 p-4 rounded-xl border border-slate-700/50">
                     <div className="text-2xl font-extrabold text-sky-400">Tiêu Chuẩn</div>
                     <div className="text-xs text-slate-300 font-medium mt-1">Xuất khẩu Châu Âu</div>
                   </div>
-                  <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
+                  <div className="bg-slate-800/60 p-4 rounded-xl border border-slate-700/50">
                     <div className="text-2xl font-extrabold text-sky-400">Non-Toluene</div>
                     <div className="text-xs text-slate-300 font-medium mt-1">An toàn thực phẩm</div>
                   </div>
-                  <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
+                  <div className="bg-slate-800/60 p-4 rounded-xl border border-slate-700/50">
                     <div className="text-2xl font-extrabold text-sky-400">24/7</div>
                     <div className="text-xs text-slate-300 font-medium mt-1">Tư vấn kỹ thuật</div>
                   </div>
@@ -119,7 +134,7 @@ export default async function HomePage() {
                 <div className="pt-4 border-t border-slate-700/60">
                   <Link
                     href="/lien-he"
-                    className="w-full py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-semibold text-center block text-sm transition"
+                    className="w-full py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-semibold text-center block text-sm transition shadow-lg shadow-sky-600/30"
                   >
                     Gửi yêu cầu nhận mẫu thử miễn phí
                   </Link>

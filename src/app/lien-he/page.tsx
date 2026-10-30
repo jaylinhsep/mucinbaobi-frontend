@@ -5,7 +5,7 @@ import QuoteForm from "@/components/QuoteForm";
 export const metadata: Metadata = {
   title: "Liên Hệ Báo Giá Mực In & Dung Môi | Vượng Phát Ink",
   description:
-    "Liên hệ Công ty TNHH Vượng Phát Ink: 358/13/7 Cách Mạng Tháng 8, P.10, Q.3, TP.HCM. Hotline / Zalo: 094 76 76 021. Email: info@mucinbaobi.com.",
+    "Liên hệ Công ty TNHH Vượng Phát Ink: 60 Nguyễn Thông, Phường Nhiêu Lộc, TP. Hồ Chí Minh. Hotline / Zalo: 094 76 76 021. Email: info@mucinbaobi.com.",
 };
 
 export default function LienHePage() {
@@ -41,7 +41,7 @@ export default function LienHePage() {
                   <div>
                     <h3 className="font-bold text-slate-900 text-sm">Địa chỉ văn phòng / Nhà xưởng</h3>
                     <p className="text-sm text-slate-600 mt-1">
-                      358/13/7 Cách Mạng Tháng 8, Phường 10, Quận 3, TP. Hồ Chí Minh
+                      60 Nguyễn Thông, Phường Nhiêu Lộc, TP. Hồ Chí Minh
                     </p>
                   </div>
                 </div>

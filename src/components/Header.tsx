@@ -17,7 +17,7 @@ export default function Header() {
           <div className="flex flex-wrap items-center gap-4 text-center sm:text-left">
             <span className="flex items-center gap-1.5 hover:text-white transition">
               <MapPin className="w-3.5 h-3.5 text-sky-400 shrink-0" />
-              <span>358/13/7 Cách Mạng Tháng 8, P.10, Q.3, TP.HCM</span>
+              <span>60 Nguyễn Thông, Phường Nhiêu Lộc, TP. Hồ Chí Minh</span>
             </span>
             <span className="hidden md:flex items-center gap-1.5 hover:text-white transition">
               <Mail className="w-3.5 h-3.5 text-sky-400 shrink-0" />
