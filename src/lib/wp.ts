@@ -37,15 +37,18 @@ export interface WPCategory {
 
 const WP_API_URL = "https://admin.mucinbaobi.com/wp-json/wp/v2";
 
-// Helper to format clean image URL under mucinbaobi.com
+// Helper to format clean image URL ensuring it loads from admin.mucinbaobi.com
 export function normalizeImageUrl(url?: string): string {
-  if (!url) return "https://www.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink1.jpg";
-  return url.replace("https://admin.mucinbaobi.com/wp-content/", "https://www.mucinbaobi.com/wp-content/");
+  if (!url) return "https://admin.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink1.jpg";
+  // If the URL has mucinbaobi.com/wp-content (without admin), point to admin.mucinbaobi.com where LiteSpeed serves the media files
+  return url.replace("https://www.mucinbaobi.com/wp-content/", "https://admin.mucinbaobi.com/wp-content/")
+            .replace("https://mucinbaobi.com/wp-content/", "https://admin.mucinbaobi.com/wp-content/")
+            .replace("http://mucinbaobi.com/wp-content/", "https://admin.mucinbaobi.com/wp-content/");
 }
 
 // Helper to get image URL from media id fallback
 export function getMediaUrlById(id?: number): string {
-  if (!id) return "https://www.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink1.jpg";
+  if (!id) return "https://admin.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink1.jpg";
   const found = (mediaData as Array<{ id: number; source_url: string }>).find((m) => m.id === id);
   return normalizeImageUrl(found?.source_url);
 }

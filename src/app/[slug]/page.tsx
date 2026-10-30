@@ -119,14 +119,14 @@ export default async function SinglePostPage({ params }: Props) {
               </h1>
             </header>
 
-            {/* Rich Content from WordPress - formatted under mucinbaobi.com */}
+            {/* Rich Content from WordPress - ensuring all images load from LiteSpeed server */}
             <div
               className="article-content pt-8"
               dangerouslySetInnerHTML={{
-                __html: post.content.rendered.replaceAll(
-                  "https://admin.mucinbaobi.com/wp-content/",
-                  "https://www.mucinbaobi.com/wp-content/"
-                ),
+                __html: post.content.rendered
+                  .replaceAll("https://www.mucinbaobi.com/wp-content/", "https://admin.mucinbaobi.com/wp-content/")
+                  .replaceAll("https://mucinbaobi.com/wp-content/", "https://admin.mucinbaobi.com/wp-content/")
+                  .replaceAll("http://mucinbaobi.com/wp-content/", "https://admin.mucinbaobi.com/wp-content/"),
               }}
             />
 
