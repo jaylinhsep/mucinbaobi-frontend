@@ -24,19 +24,18 @@ export default async function HomePage() {
       {/* HERO SECTION */}
       <section className="relative overflow-hidden bg-slate-950 text-white py-20 lg:py-28 border-b border-slate-800">
         {/* Background Industrial Rotogravure Printing Press with atmospheric dark gradient overlay */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 pointer-events-none">
           <Image
             src="/rotogravure-press.png"
             alt="Dàn máy in trục ống đồng công nghiệp Vượng Phát Ink"
             fill
-            className="object-cover object-right md:object-center opacity-30 scale-105"
+            className="object-cover object-right-bottom md:object-center opacity-85"
             priority
             sizes="100vw"
           />
-          {/* Multi-layered cinematic gradients to ensure high contrast, readability and modern tech atmosphere */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/70"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/60"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:28px_28px] opacity-15"></div>
+          {/* Subtle gradient to keep white text clearly legible while showcasing the full industrial machine */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/70 to-slate-950/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/50"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
