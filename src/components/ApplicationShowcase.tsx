@@ -9,7 +9,6 @@ import {
   Sparkles,
   Layers,
   ShieldCheck,
-  Zap,
   CheckCircle2,
   Package,
   FileText,
@@ -24,39 +23,42 @@ import {
 interface Slide {
   id: number;
   category: string;
-  tagColor: string;
+  badge: string;
   title: string;
   substrate: string;
   description: string;
   image: string;
   highlights: string[];
+  photoTag: string;
 }
 
 const SLIDES: Slide[] = [
   {
     id: 1,
-    category: "Bao bì nhựa thực phẩm",
-    tagColor: "bg-sky-500/20 text-sky-300 border-sky-400/30",
-    title: "Bao Bì Nhựa Thực Phẩm Màng Ghép Đa Lớp",
-    substrate: "Màng BOPP, LLDPE, CPP, PET, Màng nhôm MPET",
+    category: "Bao Bì Nhựa Thực Phẩm",
+    badge: "Màng Ghép Đa Lớp",
+    title: "Bao Bì Nhựa Thực Phẩm, Bánh Kẹo & Snack Ăn Liền",
+    substrate: "Màng BOPP, LLDPE, CPP, PET, MPET",
     description:
-      "Dòng mực in ống đồng chuyên dụng cho bao bì bánh kẹo, mì gói, snack ăn liền, hạt điều và túi hút chân không thủy hải sản. Đạt độ bóng cao, kháng dầu mỡ, không mùi, đạt tiêu chuẩn khắt khe cho xuất khẩu thực phẩm.",
-    image: "/rotogravure-press.png",
+      "Dòng mực in ống đồng cao cấp chuyên dụng cho bao bì snack khoai tây, mì gói, bánh kẹo và túi hút chân không thực phẩm đông lạnh. Màu in rực rỡ, độ bóng bề mặt cao, kháng dầu mỡ và tuyệt đối không mùi dung môi, đáp ứng khắt khe tiêu chuẩn xuất khẩu Châu Âu.",
+    image: "/applications/food-snack-bag.jpg",
+    photoTag: "Màu in rực rỡ • Chuẩn Non-Toluene",
     highlights: [
       "Kháng lạnh -20°C & Kháng nhiệt retort 121°C",
       "Đạt chuẩn Non-Toluene an toàn thực phẩm",
-      "Tốc độ in cao đạt 200 - 300m/phút",
+      "Tốc độ in đạt 200 - 300m/phút",
     ],
   },
   {
     id: 2,
-    category: "Màng co nhiệt nhãn chai",
-    tagColor: "bg-pink-500/20 text-pink-300 border-pink-400/30",
-    title: "Màng Co Nhiệt PVC, PET-G Nhãn Chai Nước & Mỹ Phẩm",
+    category: "Màng Co Nhãn Chai",
+    badge: "Co Nhiệt 360°",
+    title: "Màng Co Nhiệt PVC, PET-G Nhãn Chai Nước Giải Khát",
     substrate: "Màng PVC Shrink Film, PET-G, OPS",
     description:
-      "Ứng dụng làm nhãn co ôm sát thân chai nước giải khát, nước ngọt có ga, bình nước khoáng, lốc chai và chai lọ hóa mỹ phẩm. Độ đàn hồi cao, co ôm khít 360 độ mà không làm vỡ hạt mực hay bong tróc.",
-    image: "https://admin.mucinbaobi.com/wp-content/uploads/2024/11/muc-in-ong-dong-non-toluene-1.webp",
+      "Ứng dụng làm nhãn co ôm sát thân chai nước ngọt, trà xanh, nước ép trái cây, bình nước tinh khiết và hóa mỹ phẩm. Độ đàn hồi cao, co ôm khít 360 độ mà không làm nứt vỡ hạt mực, không bong tróc khi qua buồng sấy nhiệt.",
+    image: "/applications/beverage-shrink-bottle.jpg",
+    photoTag: "Tỷ lệ co 70% • Không phai màu",
     highlights: [
       "Tỷ lệ co rút nhiệt lên đến 65% - 70%",
       "Mực không lem, không bay màu qua buồng hơi sấy",
@@ -65,13 +67,14 @@ const SLIDES: Slide[] = [
   },
   {
     id: 3,
-    category: "Bao bì giấy & Kraft",
-    tagColor: "bg-amber-500/20 text-amber-300 border-amber-400/30",
-    title: "Bao Bì Giấy Kraft, Túi Cà Phê & Hộp Quà Cao Cấp",
-    substrate: "Giấy Kraft nâu/trắng, Couche, Duplex, Giấy mỹ thuật ghép màng",
+    category: "Bao Bì Giấy Kraft",
+    badge: "Bao Bì Xanh Sinh Thái",
+    title: "Túi Cà Phê Giấy Kraft & Bao Bì Nông Sản Mộc",
+    substrate: "Giấy Kraft 70-120gsm, Couche, Duplex ghép màng",
     description:
-      "Giải pháp mực in ống đồng cho bao bì túi cà phê giấy kraft mộc, túi đựng trà thảo mộc, bao bì nông sản và túi mua sắm thời trang. Thấm hút mực vừa phải, thể hiện màu sắc tự nhiên, mộc mạc và sắc nét từng chi tiết.",
-    image: "https://admin.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink3.webp",
+      "Giải pháp mực in ống đồng cho bao bì túi cà phê giấy kraft mộc, túi trà thảo mộc, bột mì và ngũ cốc dinh dưỡng. Mực thấm hút vừa vặn vào thớ giấy, tạo độ mộc mạc tinh tế, giữ màu sắc sắc nét mà không làm cong vênh sợi giấy.",
+    image: "/applications/coffee-kraft-pouch.jpg",
+    photoTag: "Thân thiện môi trường • Nét in siêu mịn",
     highlights: [
       "Gốc dung môi bay hơi nhanh, không cong vênh giấy",
       "Nét chữ nhỏ và họa tiết mảnh siêu sắc nét",
@@ -80,13 +83,30 @@ const SLIDES: Slide[] = [
   },
   {
     id: 4,
-    category: "Bao bì dược phẩm & Vỉ nhôm",
-    tagColor: "bg-emerald-500/20 text-emerald-300 border-emerald-400/30",
-    title: "Bao Bì Màng Nhôm Dược Phẩm & Y Tế (PTP Foil)",
-    substrate: "Màng nhôm lá mỏng (Alu foil), Màng nhựa phức hợp y tế",
+    category: "Túi Giấy & Hộp Quà",
+    badge: "Thương Hiệu Thời Trang",
+    title: "Túi Giấy Mua Sắm & Bao Bì Hộp Quà Nghệ Thuật",
+    substrate: "Giấy mỹ thuật, Giấy Couche, Ivory",
     description:
-      "Mực in ống đồng chịu nhiệt chuyên in vỉ thuốc viên nén, màng nhôm ép nhiệt PTP, bao bì bông gạc và thiết bị y tế. Kháng ẩm tuyệt đối, cản khí, chịu nhiệt độ cao khi ép hàn nhiệt đóng gói tự động.",
-    image: "https://admin.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink4.webp",
+      "In ống đồng cho túi giấy thương hiệu thời trang, hộp quà mỹ phẩm, bao bì bánh kẹo cao cấp. Mực phủ mịn màng, độ bóng cao, chống trầy xước và nứt gãy ở mép gấp nếp, khẳng định đẳng cấp thương hiệu.",
+    image: "/applications/paper-shopping-bag.jpg",
+    photoTag: "Bóng mịn hoàn hảo • Gấp nếp không nứt",
+    highlights: [
+      "Độ che phủ màu đồng đều, không đốm trắng",
+      "Chống lem trầy khi gấp nếp túi hộp",
+      "Hạt màu tươi sáng rực rỡ dưới ánh đèn",
+    ],
+  },
+  {
+    id: 5,
+    category: "Dược Phẩm & Y Tế",
+    badge: "Kháng Khuẩn & Kháng Ẩm",
+    title: "Vỉ Thuốc Ép Màng Nhôm PTP & Bao Bì Y Tế",
+    substrate: "Lá nhôm mỏng Alu Foil, Màng phức hợp y tế",
+    description:
+      "Mực in ống đồng chịu nhiệt chuyên in thông tin liều dùng và hạn sử dụng trên vỉ thuốc viên nén, màng nhôm ép nhiệt PTP, bao bì bông gạc y tế. Chịu được nhiệt độ cao khi ép hàn niêm phong mà không thôi nhiễm độc tố.",
+    image: "/applications/pharma-blister-foil.jpg",
+    photoTag: "Chịu nhiệt 180°C • An toàn sinh học",
     highlights: [
       "Chịu nhiệt hàn ép vỉ thuốc tới 180°C",
       "Đạt kiểm định kim loại nặng & an toàn sinh học",
@@ -94,14 +114,15 @@ const SLIDES: Slide[] = [
     ],
   },
   {
-    id: 5,
-    category: "Tinh màu Solvent Dye mỹ phẩm",
-    tagColor: "bg-purple-500/20 text-purple-300 border-purple-400/30",
-    title: "Tinh Màu Solvent Dye Phủ Chai Lọ Mỹ Phẩm & Thủy Tinh",
-    substrate: "Chai lọ thủy tinh cao cấp, Nhựa PET/PS, Vecni đồ gỗ",
+    id: 6,
+    category: "Mỹ Phẩm & Thủy Tinh",
+    badge: "Bóng Gương Pha Lê",
+    title: "Tinh Màu Solvent Dye Phủ Chai Lọ Mỹ Phẩm Thủy Tinh",
+    substrate: "Chai lọ thủy tinh cao cấp, Nhựa PET/PS, Nắp son",
     description:
-      "Sơn phủ tạo màu trong suốt cho chai lọ nước hoa, hũ mỹ phẩm dưỡng da, nắp son cao cấp và phủ bóng đồ gỗ thủ công mỹ nghệ. Tạo màu sắc lấp lánh như pha lê với độ bóng gương sang trọng.",
-    image: "https://admin.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink2.webp",
+      "Sơn phủ tạo màu trong suốt cho chai lọ nước hoa, hũ mỹ phẩm dưỡng da, nắp son cao cấp và phủ bóng đồ gỗ thủ công mỹ nghệ. Tạo màu sắc lấp lánh như pha lê với độ bóng gương sang trọng, kháng tia UV bền màu vĩnh cửu.",
+    image: "/applications/cosmetic-luxury-bottle.jpg",
+    photoTag: "Trong suốt như pha lê • Kháng tia UV",
     highlights: [
       "Độ trong suốt quang học và khúc xạ ánh sáng tuyệt hảo",
       "Kháng tia cực tím UV, kháng cồn và dung môi",
@@ -118,7 +139,7 @@ const APPLICATION_ITEMS = [
     material: "OPP / CPP, PET / PE, MPET",
     desc: "In ống đồng trên màng ngoài (Reverse Printing) rồi ghép màng lót thực phẩm. Lớp mực nằm ở giữa hai lớp màng giúp giữ trọn hương vị, chống thẩm thấu oxy và không bao giờ tiếp xúc với thực phẩm.",
     features: ["Độ bền kéo dãn cao", "Không mùi dung môi", "Màu in rực rỡ, bắt mắt"],
-    image: "https://admin.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink5.webp",
+    image: "/applications/food-snack-bag.jpg",
     inkType: "Mực PU đa năng / Mực ghép đùn",
   },
   {
@@ -128,28 +149,28 @@ const APPLICATION_ITEMS = [
     material: "PVC Màng Co, PET-G, OPS",
     desc: "Mực in ngược trên mặt trong của màng co nhiệt, sau đó ống màng được dẫn qua buồng sấy nhiệt để ôm khít thân chai có biên dạng phức tạp mà không bong rộp hay nhăn rách.",
     features: ["Tỷ lệ co rút 60% - 70%", "Chịu buồng hơi nước 100°C", "Chống xước khi vận chuyển lốc"],
-    image: "https://admin.mucinbaobi.com/wp-content/uploads/2024/11/muc-in-ong-dong-non-toluene-1.webp",
+    image: "/applications/beverage-shrink-bottle.jpg",
     inkType: "Mực màng PVC co nhiệt chuyên dụng",
   },
   {
     id: "bao-bi-giay",
     category: "giay",
-    title: "Bao Bì Giấy Kraft & Túi Giấy Mỹ Thuật",
+    title: "Túi Cà Phê Giấy Kraft & Bao Bì Sinh Thái",
     material: "Giấy Kraft 70-120gsm, Couche, Duplex",
     desc: "Mực in ống đồng thấm sâu vừa đủ vào sợi cellulose của giấy kraft, tạo bề mặt in mịn màng, tôn vinh nét đẹp thủ công mộc mạc và phong cách bao bì sinh thái hiện đại.",
     features: ["Không làm nhăn phồng giấy", "Màu đen sâu thẳm, mực màu tươi", "Khô tức thì trên dàn sấy"],
-    image: "https://admin.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink3.webp",
+    image: "/applications/coffee-kraft-pouch.jpg",
     inkType: "Mực in ống đồng cho giấy & Kraft",
   },
   {
-    id: "nong-nghiep",
-    category: "nhua",
-    title: "Bao Bì Nông Nghiệp & Thức Ăn Chăn Nuôi",
-    material: "BOPP ghép màng dệt PP (Woven Bag)",
-    desc: "Bao gạo xuất khẩu, bao phân bón và thức ăn thủy hải sản đòi hỏi mực in có độ dẻo cao, chịu được va đập cơ học nặng, chống cọ xát khi bốc dỡ và chịu được ánh nắng gắt ngoài trời.",
-    features: ["Chống trầy xước cực tốt", "Bền màu dưới tia nắng UV", "Bám dính tuyệt đối màng BOPP"],
-    image: "https://admin.mucinbaobi.com/wp-content/uploads/2024/08/may-in-truc-ong-dong-chong-mau.webp",
-    inkType: "Mực in lót trắng OPW & Mực bề mặt",
+    id: "tui-giay-nghe-thuat",
+    category: "giay",
+    title: "Túi Giấy Mua Sắm & Bao Bì Thương Hiệu",
+    material: "Giấy Couche, Ivory, Giấy mỹ thuật",
+    desc: "In ống đồng cho các dòng túi giấy thời trang, túi quà tặng hội nghị, hộp giấy mỹ phẩm với độ sắc nét từng đường line và hoa văn kim loại nhũ vàng, nhũ bạc.",
+    features: ["Phủ mực đều mịn màng", "Gấp nếp không bong tróc", "Chuẩn màu thương hiệu"],
+    image: "/applications/paper-shopping-bag.jpg",
+    inkType: "Mực in giấy cao cấp",
   },
   {
     id: "duoc-pham",
@@ -158,7 +179,7 @@ const APPLICATION_ITEMS = [
     material: "Nhôm lá PTP Alu Foil, Màng phức hợp",
     desc: "In thông tin nhãn thuốc, liều dùng và hạn sử dụng trực tiếp trên mặt lá nhôm. Đòi hỏi độ sắc nét tuyệt đối của các ký tự nhỏ, không bong tróc khi chịu nhiệt ép máy hàn vỉ.",
     features: ["Chịu nhiệt hàn ép 180°C", "Không thôi nhiễm độc tố", "Sắc nét từng dòng chữ nhỏ"],
-    image: "https://admin.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink4.webp",
+    image: "/applications/pharma-blister-foil.jpg",
     inkType: "Mực Non-Toluene Y Tế",
   },
   {
@@ -168,7 +189,7 @@ const APPLICATION_ITEMS = [
     material: "Chai thủy tinh, nắp nhôm, hũ mỹ phẩm",
     desc: "Pha trộn trực tiếp với vecni bóng hoặc sơn sấy công nghiệp để phủ màu cho chai lọ mỹ phẩm trong suốt với ánh màu hổ phách, xanh ngọc bích, tím thạch anh sang trọng.",
     features: ["Trong suốt quang học tuyệt hảo", "Bền màu với ánh sáng mặt trời", "Bề mặt căng bóng không tì vết"],
-    image: "https://admin.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink2.webp",
+    image: "/applications/cosmetic-luxury-bottle.jpg",
     inkType: "Tinh màu Solvent Dye hòa tan cao",
   },
 ];
@@ -209,6 +230,8 @@ export default function ApplicationShowcase() {
     touchStartX.current = null;
   };
 
+  const currentSlide = SLIDES[activeSlide];
+
   // Filtered Items
   const filteredItems =
     selectedCategory === "all"
@@ -217,133 +240,144 @@ export default function ApplicationShowcase() {
 
   return (
     <div className="space-y-16">
-      {/* 1. INTERACTIVE HERO SLIDER */}
+      {/* 1. INTERACTIVE HERO SLIDER - SPLIT VIVID DISPLAY */}
       <div
-        className="relative rounded-3xl overflow-hidden bg-slate-950 text-white shadow-2xl border border-slate-800"
+        className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white shadow-2xl border border-slate-800"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        {/* Carousel Slide Container */}
-        <div className="relative min-h-[480px] sm:min-h-[520px] flex items-center">
-          {SLIDES.map((slide, index) => {
-            const isActive = index === activeSlide;
-            return (
-              <div
-                key={slide.id}
-                className={`absolute inset-0 transition-opacity duration-700 ease-in-out flex items-center ${
-                  isActive ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-0 pointer-events-none"
-                }`}
-              >
-                {/* Background Image with Gradient Overlay */}
-                <div className="absolute inset-0 z-0">
-                  <Image
-                    src={slide.image}
-                    alt={slide.title}
-                    fill
-                    className="object-cover object-center scale-105 transition-transform duration-1000"
-                    priority={index === 0}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/40"></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/60"></div>
-                </div>
+        <div className="p-6 sm:p-10 lg:p-14">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[460px]">
+            {/* Left Column: Typography & Specs */}
+            <div className="lg:col-span-7 space-y-6">
+              {/* Category & Badge */}
+              <div className="flex flex-wrap items-center gap-2.5">
+                <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-sky-500/20 text-sky-300 border border-sky-400/30 text-xs font-bold uppercase tracking-wider">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  {currentSlide.category}
+                </span>
+                <span className="px-3 py-1 rounded-full bg-white/10 text-slate-300 text-xs font-semibold backdrop-blur-md">
+                  {currentSlide.badge}
+                </span>
+              </div>
 
-                {/* Content Overlay */}
-                <div className="relative z-10 max-w-4xl px-6 sm:px-14 py-12 space-y-6">
-                  {/* Category Pill */}
-                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-xs font-semibold backdrop-blur-md uppercase tracking-wider">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    <span>{slide.category}</span>
+              {/* Title */}
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight text-white">
+                {currentSlide.title}
+              </h2>
+
+              {/* Substrate Material Badge */}
+              <div className="inline-flex items-center gap-2 text-xs sm:text-sm text-sky-300 font-medium bg-sky-950/70 border border-sky-800/60 px-4 py-2 rounded-xl backdrop-blur-sm">
+                <Layers className="w-4 h-4 text-sky-400 shrink-0" />
+                <span>Chất liệu: <strong>{currentSlide.substrate}</strong></span>
+              </div>
+
+              {/* Description */}
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+                {currentSlide.description}
+              </p>
+
+              {/* Highlights Checklist */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
+                {currentSlide.highlights.map((h, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-2 text-xs font-semibold text-slate-200 bg-white/5 border border-white/10 px-3 py-2 rounded-xl backdrop-blur-sm"
+                  >
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <span className="truncate">{h}</span>
                   </div>
+                ))}
+              </div>
 
-                  {/* Title */}
-                  <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight text-white max-w-3xl">
-                    {slide.title}
-                  </h2>
+              {/* Action Buttons */}
+              <div className="pt-3 flex flex-wrap items-center gap-4">
+                <Link
+                  href="/lien-he"
+                  className="px-6 py-3.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-black text-sm flex items-center gap-2 transition active:scale-95 shadow-lg shadow-sky-500/25"
+                >
+                  <span>Nhận mẫu thử chất liệu này</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <a
+                  href="tel:0947676021"
+                  className="px-5 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-white font-bold text-sm flex items-center gap-2 transition"
+                >
+                  <PhoneCall className="w-4 h-4 text-sky-400" />
+                  <span>094 76 76 021</span>
+                </a>
+              </div>
+            </div>
 
-                  {/* Material Substrate Badge */}
-                  <div className="flex items-center gap-2 text-xs sm:text-sm text-sky-300 font-medium bg-sky-950/60 border border-sky-800/50 px-3.5 py-2 rounded-xl backdrop-blur-sm max-w-fit">
-                    <Layers className="w-4 h-4 text-sky-400 shrink-0" />
-                    <span>Chất liệu: {slide.substrate}</span>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-                    {slide.description}
-                  </p>
-
-                  {/* Key Highlights */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2 max-w-2xl">
-                    {slide.highlights.map((h, i) => (
-                      <div
-                        key={i}
-                        className="flex items-center gap-2 text-xs font-semibold text-slate-200 bg-white/5 border border-white/10 px-3 py-2 rounded-lg backdrop-blur-sm"
-                      >
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                        <span className="truncate">{h}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* CTA button */}
-                  <div className="pt-2 flex flex-wrap items-center gap-4">
-                    <Link
-                      href="/lien-he"
-                      className="px-6 py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-sm flex items-center gap-2 transition active:scale-95 shadow-lg shadow-sky-500/20"
-                    >
-                      <span>Nhận mẫu thử màng này</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                    <a
-                      href="tel:0947676021"
-                      className="px-5 py-3 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-white font-semibold text-sm flex items-center gap-2 transition"
-                    >
-                      <PhoneCall className="w-4 h-4 text-sky-400" />
-                      <span>094 76 76 021</span>
-                    </a>
+            {/* Right Column: Crystal Clear Vivid Packaging Photo Frame */}
+            <div className="lg:col-span-5 relative group">
+              <div className="relative w-full h-72 sm:h-96 rounded-3xl overflow-hidden shadow-2xl border-2 border-white/15 bg-slate-900 group-hover:border-sky-500/50 transition-colors">
+                <Image
+                  src={currentSlide.image}
+                  alt={currentSlide.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  priority
+                />
+                {/* Floating Photo Tag */}
+                <div className="absolute bottom-4 left-4 right-4">
+                  <div className="px-4 py-2 rounded-2xl bg-slate-950/80 backdrop-blur-md border border-white/15 text-xs text-white font-bold flex items-center justify-between shadow-xl">
+                    <span className="truncate">{currentSlide.photoTag}</span>
+                    <span className="text-sky-400 text-[11px] font-semibold shrink-0">Vượng Phát Ink</span>
                   </div>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          </div>
         </div>
 
-        {/* Carousel Navigation Arrows */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-slate-900/70 hover:bg-sky-600 text-white flex items-center justify-center border border-white/10 backdrop-blur-md transition-all active:scale-90"
-          aria-label="Previous Slide"
-        >
-          <ChevronLeft className="w-6 h-6" />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-slate-900/70 hover:bg-sky-600 text-white flex items-center justify-center border border-white/10 backdrop-blur-md transition-all active:scale-90"
-          aria-label="Next Slide"
-        >
-          <ChevronRight className="w-6 h-6" />
-        </button>
+        {/* Carousel Bottom Control Bar */}
+        <div className="border-t border-slate-800/80 bg-slate-950/80 px-6 sm:px-10 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+          {/* Slide Indicator Pills */}
+          <div className="flex items-center gap-2">
+            {SLIDES.map((slide, i) => (
+              <button
+                key={slide.id}
+                onClick={() => setActiveSlide(i)}
+                className={`transition-all duration-300 rounded-full flex items-center justify-center text-[11px] font-bold ${
+                  i === activeSlide
+                    ? "w-10 h-3 bg-sky-400 text-transparent"
+                    : "w-3 h-3 bg-slate-700 hover:bg-slate-500"
+                }`}
+                aria-label={`Chuyển tới slide ${i + 1}`}
+              />
+            ))}
+            <span className="ml-3 text-xs text-slate-400 font-mono">
+              0{activeSlide + 1} / 0{SLIDES.length}
+            </span>
+          </div>
 
-        {/* Slide Indicators / Dots */}
-        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-slate-950/60 px-4 py-2 rounded-full border border-white/10 backdrop-blur-md">
-          {SLIDES.map((_, i) => (
+          {/* Prev/Next Buttons */}
+          <div className="flex items-center gap-2">
             <button
-              key={i}
-              onClick={() => setActiveSlide(i)}
-              className={`transition-all duration-300 rounded-full ${
-                i === activeSlide ? "w-8 h-2.5 bg-sky-400" : "w-2.5 h-2.5 bg-slate-600 hover:bg-slate-400"
-              }`}
-              aria-label={`Go to slide ${i + 1}`}
-            />
-          ))}
+              onClick={prevSlide}
+              className="p-2.5 rounded-xl bg-slate-800 hover:bg-sky-600 text-white transition active:scale-90 border border-slate-700 hover:border-sky-500"
+              aria-label="Slide trước"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="p-2.5 rounded-xl bg-slate-800 hover:bg-sky-600 text-white transition active:scale-90 border border-slate-700 hover:border-sky-500"
+              aria-label="Slide kế tiếp"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
         </div>
       </div>
 
       {/* 2. CATEGORY FILTER TABS */}
       <div className="space-y-8">
         <div className="text-center space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 text-sky-700 text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-100 text-sky-700 text-xs font-semibold">
             <span>Danh Mục Ứng Dụng Chuyên Sâu</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -392,7 +426,7 @@ export default function ApplicationShowcase() {
             >
               <div>
                 {/* Card Image */}
-                <div className="relative h-52 w-full overflow-hidden bg-slate-900">
+                <div className="relative h-56 w-full overflow-hidden bg-slate-900">
                   <Image
                     src={item.image}
                     alt={item.title}
@@ -401,12 +435,12 @@ export default function ApplicationShowcase() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 rounded-full bg-slate-900/80 text-sky-400 text-xs font-bold backdrop-blur-md border border-slate-700">
+                    <span className="px-3 py-1 rounded-full bg-slate-900/85 text-sky-400 text-xs font-bold backdrop-blur-md border border-slate-700">
                       {item.inkType}
                     </span>
                   </div>
                   <div className="absolute bottom-3 left-4 right-4">
-                    <span className="text-xs text-slate-300 font-medium">Chất liệu: {item.material}</span>
+                    <span className="text-xs text-white font-medium">Chất liệu: {item.material}</span>
                   </div>
                 </div>
 
@@ -435,7 +469,7 @@ export default function ApplicationShowcase() {
               <div className="p-6 pt-0">
                 <Link
                   href="/lien-he"
-                  className="w-full py-2.5 rounded-xl border border-sky-600 text-sky-600 hover:bg-sky-50 text-xs font-bold flex items-center justify-center gap-2 transition"
+                  className="w-full py-2.5 rounded-xl border border-sky-600 text-sky-600 hover:bg-sky-50 text-xs font-bold flex items-center justify-center gap-2 transition active:scale-95"
                 >
                   <span>Yêu cầu mẫu test màng này</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -569,13 +603,13 @@ export default function ApplicationShowcase() {
               href="https://zalo.me/0947676021"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm text-center transition"
+              className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm text-center transition"
             >
               Chat Zalo Kỹ Thuật
             </a>
             <a
               href="tel:0947676021"
-              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-sm text-center flex items-center justify-center gap-2 transition"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-black text-sm text-center flex items-center justify-center gap-2 transition"
             >
               <PhoneCall className="w-4 h-4" />
               <span>Gọi 094 76 76 021</span>
