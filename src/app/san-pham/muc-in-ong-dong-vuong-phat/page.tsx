@@ -39,14 +39,22 @@ export const metadata: Metadata = {
       "Chuyên sản xuất mực in ống đồng cao cấp trên màng nhựa PP, PE, PVC co, PET, OPP. Độ bám dính cao, màu sắc tươi sáng, bền màu và tiết kiệm mực.",
     url: "https://mucinbaobi.com/san-pham/muc-in-ong-dong-vuong-phat",
     type: "website",
+    images: [
+      {
+        url: "/muc-in-ong-dong-vuong-phat-chinh.jpg",
+        width: 768,
+        height: 1024,
+        alt: "Thùng can mực in ống đồng Vượng Phát Ink sản xuất thực tế tại xưởng",
+      },
+    ],
   },
 };
 
 export default function MucInOngDongVuongPhatPage() {
   const images = [
     {
-      src: "https://admin.mucinbaobi.com/wp-content/uploads/2024/07/muc-in-ong-dong-vuong-phat.jpg",
-      alt: "Mực in ống đồng Vượng Phát đóng xô 20kg",
+      src: "/muc-in-ong-dong-vuong-phat-chinh.jpg",
+      alt: "Can mực in ống đồng Vượng Phát Ink đa dạng mã màu sản xuất thực tế tại xưởng",
     },
     {
       src: "https://admin.mucinbaobi.com/wp-content/uploads/2024/07/in-an-bao-bi-thuc-pham-1.webp",
@@ -79,15 +87,16 @@ export default function MucInOngDongVuongPhatPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Gallery Column */}
             <div className="lg:col-span-6 space-y-4">
-              <div className="relative h-80 sm:h-96 w-full rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-900 group">
+              <div className="relative h-[440px] sm:h-[520px] w-full rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-950 group flex items-center justify-center">
                 <Image
                   src={images[0].src}
                   alt={images[0].alt}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-contain group-hover:scale-105 transition-transform duration-500"
                   priority
                 />
-                <div className="absolute top-4 left-4">
+                <div className="absolute top-4 left-4 z-10">
                   <span className="px-3.5 py-1.5 rounded-full bg-sky-600 text-white text-xs font-bold shadow-md">
                     Sản Phẩm Trọng Tâm
                   </span>
@@ -236,9 +245,9 @@ export default function MucInOngDongVuongPhatPage() {
                 </tr>
                 <tr className="hover:bg-slate-50 transition">
                   <td className="py-3.5 px-4 font-semibold text-slate-900">Quy cách đóng gói</td>
-                  <td className="py-3.5 px-4">Xô 20kg / Phuy 200kg</td>
-                  <td className="py-3.5 px-4">Thùng kim loại / Thùng nhựa</td>
-                  <td className="py-3.5 px-4">Có tem niêm phong chống hàng giả</td>
+                  <td className="py-3.5 px-4 font-semibold text-sky-700">Can kim loại 17kg - 20kg / Phuy 200kg</td>
+                  <td className="py-3.5 px-4">Can thiếc chữ nhật / Phuy sắt</td>
+                  <td className="py-3.5 px-4">Đóng pallet nguyên kiện, có tem mã màu niêm phong</td>
                 </tr>
               </tbody>
             </table>

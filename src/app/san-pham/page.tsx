@@ -51,82 +51,102 @@ export default function SanPhamPage() {
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {PRODUCTS.map((prod) => (
-            <div
-              key={prod.id}
-              id={prod.category}
-              className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group scroll-mt-28"
-            >
-              <div>
-                <div className="relative h-60 w-full bg-slate-100 overflow-hidden">
-                  <Image
-                    src={prod.image}
-                    alt={prod.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition duration-500"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                  {prod.badge && (
-                    <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-sky-600 text-white text-xs font-semibold shadow-md">
-                      {prod.badge}
-                    </span>
-                  )}
-                  <span className="absolute bottom-3 left-4 text-xs font-semibold text-white/90 bg-slate-900/60 backdrop-blur-sm px-2.5 py-1 rounded-md">
-                    {prod.categoryName}
-                  </span>
-                </div>
+          {PRODUCTS.map((prod) => {
+            const hasDedicatedPage =
+              prod.slug === "muc-in-ong-dong-vuong-phat" ||
+              prod.slug === "muc-in-chai-lo-my-pham";
+            const detailHref = hasDedicatedPage
+              ? `/san-pham/${prod.slug}`
+              : `/lien-he?product=${encodeURIComponent(prod.name)}`;
 
-                <div className="p-6">
-                  <h2 className="text-xl font-bold text-slate-900 group-hover:text-sky-600 transition mb-3">
-                    {prod.name}
-                  </h2>
-                  <p className="text-slate-600 text-sm leading-relaxed mb-5">
-                    {prod.description}
-                  </p>
-
-                  <div className="space-y-2 mb-6">
-                    <span className="text-xs font-bold text-slate-900 uppercase tracking-wider block">
-                      Ưu điểm nổi bật:
+            return (
+              <div
+                key={prod.id}
+                id={prod.category}
+                className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group scroll-mt-28"
+              >
+                <div>
+                  <Link href={detailHref} className="block relative h-64 w-full bg-slate-900 overflow-hidden">
+                    <Image
+                      src={prod.image}
+                      alt={prod.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition duration-500"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                    {prod.badge && (
+                      <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-sky-600 text-white text-xs font-semibold shadow-md">
+                        {prod.badge}
+                      </span>
+                    )}
+                    <span className="absolute bottom-3 left-4 text-xs font-semibold text-white/90 bg-slate-900/60 backdrop-blur-sm px-2.5 py-1 rounded-md">
+                      {prod.categoryName}
                     </span>
-                    {prod.features.map((f, i) => (
-                      <div key={i} className="flex items-start gap-2 text-xs text-slate-600">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-sky-500 shrink-0 mt-0.5" />
-                        <span>{f}</span>
+                  </Link>
+
+                  <div className="p-6">
+                    <Link href={detailHref} className="block group/title">
+                      <h2 className="text-xl font-bold text-slate-900 group-hover/title:text-sky-600 transition mb-3">
+                        {prod.name}
+                      </h2>
+                    </Link>
+                    <p className="text-slate-600 text-sm leading-relaxed mb-5">
+                      {prod.description}
+                    </p>
+
+                    <div className="space-y-2 mb-6">
+                      <span className="text-xs font-bold text-slate-900 uppercase tracking-wider block">
+                        Ưu điểm nổi bật:
+                      </span>
+                      {prod.features.map((f, i) => (
+                        <div key={i} className="flex items-start gap-2 text-xs text-slate-600">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-sky-500 shrink-0 mt-0.5" />
+                          <span>{f}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-2 text-xs">
+                      <div>
+                        <strong className="text-slate-700">Ứng dụng: </strong>
+                        <span className="text-slate-600">{prod.applications}</span>
                       </div>
-                    ))}
-                  </div>
-
-                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-2 text-xs">
-                    <div>
-                      <strong className="text-slate-700">Ứng dụng: </strong>
-                      <span className="text-slate-600">{prod.applications}</span>
-                    </div>
-                    <div>
-                      <strong className="text-slate-700">Quy cách: </strong>
-                      <span className="text-slate-600">{prod.packaging}</span>
+                      <div>
+                        <strong className="text-slate-700">Quy cách: </strong>
+                        <span className="text-slate-600">{prod.packaging}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="p-6 pt-0 border-t border-slate-100 mt-4 flex items-center gap-3">
-                <Link
-                  href="/lien-he"
-                  className="flex-1 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-semibold text-center text-xs transition"
-                >
-                  Nhận Báo Giá Ngay
-                </Link>
-                <a
-                  href="https://zalo.me/0947676021"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-3 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-600 hover:text-white font-semibold text-xs transition"
-                >
-                  Chat Zalo
-                </a>
+                <div className="p-6 pt-0 border-t border-slate-100 mt-4 flex items-center gap-2">
+                  {hasDedicatedPage ? (
+                    <Link
+                      href={detailHref}
+                      className="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-center text-xs transition shadow-sm"
+                    >
+                      Xem Chi Tiết
+                    </Link>
+                  ) : (
+                    <Link
+                      href={detailHref}
+                      className="flex-1 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-semibold text-center text-xs transition shadow-sm"
+                    >
+                      Nhận Báo Giá
+                    </Link>
+                  )}
+                  <a
+                    href={`https://zalo.me/0947676021?text=${encodeURIComponent(`Tôi muốn nhận báo giá sản phẩm: ${prod.name}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-3 rounded-xl bg-blue-50 text-sky-700 hover:bg-sky-600 hover:text-white font-semibold text-xs transition border border-sky-100"
+                  >
+                    Chat Zalo
+                  </a>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Bottom CTA Card */}
