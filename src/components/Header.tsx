@@ -9,13 +9,8 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [productDropdown, setProductDropdown] = useState(false);
 
-  const toggleMobileMenu = (e: React.MouseEvent | React.TouchEvent) => {
-    e.stopPropagation();
-    setMobileMenuOpen((prev) => !prev);
-  };
-
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all">
+    <header className="sticky top-0 z-50 bg-white border-b border-slate-200">
       {/* Top Bar for contact info */}
       <div className="bg-slate-900 text-slate-300 text-xs py-2 px-4 sm:px-8 border-b border-slate-800">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
@@ -43,7 +38,7 @@ export default function Header() {
       </div>
 
       {/* Main Navbar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-3 group">
           <div className="relative w-12 h-12 shrink-0 group-hover:scale-105 transition-transform">
@@ -89,7 +84,7 @@ export default function Header() {
             </Link>
 
             {productDropdown && (
-              <div className="absolute top-full left-0 w-64 bg-white rounded-xl shadow-xl border border-slate-100 py-2 animate-in fade-in slide-in-from-top-2 duration-150">
+              <div className="absolute top-full left-0 w-64 bg-white rounded-xl shadow-xl border border-slate-100 py-2">
                 <Link
                   href="/san-pham#muc-in-ong-dong"
                   className="block px-4 py-2.5 text-sm hover:bg-sky-50 hover:text-sky-700 transition"
@@ -152,67 +147,67 @@ export default function Header() {
         {/* Mobile Hamburger Button */}
         <button
           type="button"
-          onClick={toggleMobileMenu}
-          onTouchEnd={toggleMobileMenu}
-          className="lg:hidden p-3 -mr-2 text-slate-800 hover:text-sky-600 focus:outline-none cursor-pointer select-none touch-manipulation z-50 relative"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="lg:hidden p-3 -mr-2 text-slate-800 hover:text-sky-600 focus:outline-none cursor-pointer"
           aria-label="Toggle menu"
         >
-          {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+          {mobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
         </button>
       </div>
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-slate-200 bg-white px-6 py-6 space-y-4 shadow-2xl relative z-40 animate-in fade-in slide-in-from-top-2 duration-150">
-          <nav className="flex flex-col space-y-3 font-medium text-slate-700 text-base">
+        <div className="lg:hidden fixed inset-x-0 top-[116px] bottom-0 bg-white z-50 p-6 flex flex-col justify-between overflow-y-auto">
+          <nav className="flex flex-col space-y-4 font-semibold text-slate-800 text-lg">
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-2.5 border-b border-slate-100 hover:text-sky-600 active:text-sky-700 transition"
+              className="py-3 border-b border-slate-100 hover:text-sky-600 active:text-sky-700 transition"
             >
               Trang chủ
             </Link>
             <Link
               href="/gioi-thieu"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-2.5 border-b border-slate-100 hover:text-sky-600 active:text-sky-700 transition"
+              className="py-3 border-b border-slate-100 hover:text-sky-600 active:text-sky-700 transition"
             >
               Giới thiệu
             </Link>
             <Link
               href="/san-pham"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-2.5 border-b border-slate-100 hover:text-sky-600 active:text-sky-700 transition"
+              className="py-3 border-b border-slate-100 hover:text-sky-600 active:text-sky-700 transition"
             >
               Sản phẩm
             </Link>
             <Link
               href="/blog"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-2.5 border-b border-slate-100 hover:text-sky-600 active:text-sky-700 transition"
+              className="py-3 border-b border-slate-100 hover:text-sky-600 active:text-sky-700 transition"
             >
               Tin tức & Kỹ thuật
             </Link>
             <Link
               href="/lien-he"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-2.5 hover:text-sky-600 active:text-sky-700 transition"
+              className="py-3 hover:text-sky-600 active:text-sky-700 transition"
             >
               Liên hệ
             </Link>
           </nav>
-          <div className="pt-4 flex flex-col gap-3">
+
+          <div className="pt-6 pb-8 flex flex-col gap-3">
             <a
               href="tel:0947676021"
-              className="w-full text-center py-3.5 rounded-xl bg-slate-900 text-white font-semibold flex items-center justify-center gap-2 active:scale-95 transition"
+              className="w-full text-center py-4 rounded-xl bg-slate-900 text-white font-bold flex items-center justify-center gap-2 active:scale-95 transition text-base shadow-md"
             >
-              <Phone className="w-4 h-4 text-sky-400" />
+              <Phone className="w-5 h-5 text-sky-400" />
               <span>Gọi Hotline: 094 76 76 021</span>
             </a>
             <Link
               href="/lien-he"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center py-3.5 rounded-xl bg-sky-600 text-white font-semibold active:scale-95 transition"
+              className="w-full text-center py-4 rounded-xl bg-sky-600 text-white font-bold active:scale-95 transition text-base shadow-md shadow-sky-600/30"
             >
               Gửi yêu cầu báo giá
             </Link>
