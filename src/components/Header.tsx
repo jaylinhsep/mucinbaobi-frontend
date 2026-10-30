@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Phone, Mail, MapPin, Menu, X, ChevronDown, Sparkles } from "lucide-react";
 
@@ -40,8 +41,14 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-sky-600 via-blue-600 to-indigo-700 flex items-center justify-center text-white font-extrabold text-xl shadow-md group-hover:scale-105 transition-transform">
-            VP
+          <div className="relative w-12 h-12 shrink-0 group-hover:scale-105 transition-transform">
+            <Image
+              src="/logo.png"
+              alt="Logo Vượng Phát Ink"
+              fill
+              className="object-contain"
+              priority
+            />
           </div>
           <div className="flex flex-col">
             <span className="font-extrabold text-xl sm:text-2xl tracking-tight text-slate-900 group-hover:text-sky-600 transition">
