@@ -119,10 +119,15 @@ export default async function SinglePostPage({ params }: Props) {
               </h1>
             </header>
 
-            {/* Rich Content from WordPress */}
+            {/* Rich Content from WordPress - formatted under mucinbaobi.com */}
             <div
               className="article-content pt-8"
-              dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+              dangerouslySetInnerHTML={{
+                __html: post.content.rendered.replaceAll(
+                  "https://admin.mucinbaobi.com/wp-content/",
+                  "https://www.mucinbaobi.com/wp-content/"
+                ),
+              }}
             />
 
             {/* Article Footer & Share */}

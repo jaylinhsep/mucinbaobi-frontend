@@ -1,4 +1,4 @@
-﻿import postsData from "@/data/posts.json";
+import postsData from "@/data/posts.json";
 import pagesData from "@/data/pages.json";
 import categoriesData from "@/data/categories.json";
 import mediaData from "@/data/media.json";
@@ -37,35 +37,42 @@ export interface WPCategory {
 
 const WP_API_URL = "https://admin.mucinbaobi.com/wp-json/wp/v2";
 
+// Helper to format clean image URL under mucinbaobi.com
+export function normalizeImageUrl(url?: string): string {
+  if (!url) return "https://www.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink1.jpg";
+  return url.replace("https://admin.mucinbaobi.com/wp-content/", "https://www.mucinbaobi.com/wp-content/");
+}
+
 // Helper to get image URL from media id fallback
 export function getMediaUrlById(id?: number): string {
-  if (!id) return "https://admin.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink1.jpg";
+  if (!id) return "https://www.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink1.jpg";
   const found = (mediaData as Array<{ id: number; source_url: string }>).find((m) => m.id === id);
-  return found?.source_url || "https://admin.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink1.jpg";
+  return normalizeImageUrl(found?.source_url);
 }
 
 // Helper to get thumbnail image URL for a post
 export function getPostThumbnail(post: WPPost): string {
+  let url = "";
   if (post._embedded?.["wp:featuredmedia"]?.[0]?.source_url) {
-    return post._embedded["wp:featuredmedia"][0].source_url;
-  }
-  if (post.featured_media && post.featured_media > 0) {
+    url = post._embedded["wp:featuredmedia"][0].source_url;
+  } else if (post.featured_media && post.featured_media > 0) {
     const found = (mediaData as Array<{ id: number; source_url: string }>).find((m) => m.id === post.featured_media);
-    if (found && found.source_url) return found.source_url;
+    if (found && found.source_url) url = found.source_url;
+  } else {
+    // Extract first image from HTML content
+    const match = post.content?.rendered?.match(/<img[^>]+src=["']([^"']+)["']/i);
+    if (match && match[1]) {
+      url = match[1];
+    }
   }
-  // Extract first image from HTML content
-  const match = post.content?.rendered?.match(/<img[^>]+src=["']([^"']+)["']/i);
-  if (match && match[1]) {
-    return match[1];
-  }
-  return "https://admin.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink1.jpg";
+  return normalizeImageUrl(url);
 }
 
 // Fetch all posts with live API fallback
 export async function getPosts(): Promise<WPPost[]> {
   try {
     const res = await fetch(`${WP_API_URL}/posts?_embed&per_page=100`, {
-      next: { revalidate: 3600 },
+      next: { revalidate: 60 }, // Revalidate every 60s for immediate detection of newly published posts
       headers: { "User-Agent": "Mozilla/5.0 (Next.js Headless Client)" },
     });
     if (res.ok) {
