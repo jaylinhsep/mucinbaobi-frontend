@@ -13,6 +13,7 @@ import {
   Droplets,
   Layers,
   Award,
+  BookOpen,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -284,7 +285,117 @@ export default function MucInChaiLoMyPhamPage() {
           </div>
         </div>
 
-        {/* SECTION 4: Contact & Custom Consultation */}
+        {/* SECTION 4: Thư viện ứng dụng thực tế */}
+        <div className="bg-gradient-to-r from-purple-950 via-slate-900 to-indigo-950 rounded-3xl p-8 sm:p-12 text-white border border-purple-800/40 shadow-xl flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="space-y-3 max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 text-xs font-semibold border border-purple-400/30">
+              <Sparkles className="w-3.5 h-3.5 text-purple-400" />
+              <span>Ứng Dụng Đa Ngành Hàng</span>
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+              Khám Phá Toàn Diện Ứng Dụng Mực In & Sơn Phủ Vượng Phát
+            </h3>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              Bên cạnh sơn phủ tạo màu chai lọ mỹ phẩm, Vượng Phát Ink là chuyên gia số 1 về mực in ống đồng màng bao bì thực phẩm, màng co nhiệt và vỉ nhôm y tế.
+            </p>
+          </div>
+          <Link
+            href="/ung-dung"
+            className="w-full md:w-auto px-8 py-4 rounded-2xl bg-purple-500 hover:bg-purple-400 text-white font-bold text-sm flex items-center justify-center gap-2 whitespace-nowrap transition shadow-lg shadow-purple-500/20 active:scale-95 shrink-0"
+          >
+            <span>Xem Thư Viện Ứng Dụng</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        {/* SECTION 5: Sản phẩm trọng tâm liên kết */}
+        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/80 shadow-sm space-y-6">
+          <div className="space-y-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-sky-50 text-sky-700 text-xs font-bold">
+              <Layers className="w-3.5 h-3.5 text-sky-600" />
+              <span>Sản Phẩm Cùng Hệ Sinh Thái Vượng Phát Ink</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+              Các Sản Phẩm Trọng Tâm Khác
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Card 1: Mực in ống đồng Vượng Phát */}
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-sky-500 hover:bg-white hover:shadow-lg transition-all duration-300 flex flex-col justify-between space-y-4">
+              <div className="space-y-3">
+                <span className="text-xs font-bold text-sky-700 bg-sky-100 px-3 py-1 rounded-full inline-block">
+                  Sản Phẩm Trọng Tâm
+                </span>
+                <h3 className="text-lg font-bold text-slate-900 leading-snug">
+                  Mực In Ống Đồng Vượng Phát
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Chuyên dụng cho màng PVC co nhiệt nhãn chai, màng PE, PP dẻo, PET và OPP. Độ bám dính &gt;98%, tốc độ in 150-300m/phút.
+                </p>
+              </div>
+              <div className="pt-2">
+                <Link
+                  href="/san-pham/muc-in-ong-dong-vuong-phat"
+                  className="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition"
+                >
+                  <span>Xem Chi Tiết Mực In</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Card 2: Máy bơm chiết rót mực từ phuy */}
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-sky-500 hover:bg-white hover:shadow-lg transition-all duration-300 flex flex-col justify-between space-y-4">
+              <div className="space-y-3">
+                <span className="text-xs font-bold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full inline-block">
+                  Thiết Bị Tự Động
+                </span>
+                <h3 className="text-lg font-bold text-slate-900 leading-snug">
+                  Máy Bơm Chiết Rót Mực Từ Phuy
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Bơm màng khí nén tự động chiết rót mực từ phuy sang máng in, vận hành êm ái và chống cháy nổ an toàn cho xưởng in.
+                </p>
+              </div>
+              <div className="pt-2">
+                <Link
+                  href="/may-bom-chiet-rot-muc-tu-phuy-giai-phap-toi-uu-cho-nganh-in-ong-dong-vuong-phat-ink"
+                  className="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition"
+                >
+                  <span>Xem Chi Tiết Máy Bơm</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Card 3: Màng PVC Co */}
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-sky-500 hover:bg-white hover:shadow-lg transition-all duration-300 flex flex-col justify-between space-y-4">
+              <div className="space-y-3">
+                <span className="text-xs font-bold text-amber-700 bg-amber-100 px-3 py-1 rounded-full inline-block">
+                  Màng In Tem Nhãn
+                </span>
+                <h3 className="text-lg font-bold text-slate-900 leading-snug">
+                  Màng PVC Co & Nhãn Thân Chai
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Màng co nhiệt chất lượng cao ôm sát thân chai nước giải khát, lọ mỹ phẩm và bảo vệ bao bì toàn diện.
+                </p>
+              </div>
+              <div className="pt-2">
+                <Link
+                  href="/mang-pvc-co-ung-dung-uu-diem-va-quy-trinh-san-xuat"
+                  className="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition"
+                >
+                  <span>Xem Quy Trình Màng PVC</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* SECTION 6: Contact & Custom Consultation */}
         <div className="bg-gradient-to-br from-slate-900 to-slate-950 text-white rounded-3xl p-8 sm:p-12 border border-slate-800 shadow-xl space-y-6">
           <div className="space-y-3 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 text-xs font-semibold border border-purple-400/30">

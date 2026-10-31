@@ -149,6 +149,8 @@ export interface ProductItem {
   packaging: string;
   image: string;
   badge?: string;
+  targetUrl: string;
+  buttonLabel?: string;
 }
 
 export const PRODUCTS: ProductItem[] = [
@@ -169,6 +171,8 @@ export const PRODUCTS: ProductItem[] = [
     packaging: "Can thiếc 17kg - 20kg / Phuy 200kg",
     image: "/muc-in-ong-dong-vuong-phat-chinh.jpg",
     badge: "Bán chạy nhất",
+    targetUrl: "/san-pham/muc-in-ong-dong-vuong-phat",
+    buttonLabel: "Xem Chi Tiết Mực In",
   },
   {
     id: "p2",
@@ -187,6 +191,8 @@ export const PRODUCTS: ProductItem[] = [
     packaging: "Thùng 18kg / 20kg",
     image: "https://admin.mucinbaobi.com/wp-content/uploads/2024/11/muc-in-ong-dong-non-toluene.webp",
     badge: "Đạt chuẩn Châu Âu",
+    targetUrl: "/muc-in-ong-dong-non-toluene-la-gi",
+    buttonLabel: "Đọc Bài Viết Kỹ Thuật",
   },
   {
     id: "p3",
@@ -204,6 +210,8 @@ export const PRODUCTS: ProductItem[] = [
     applications: "Túi xốp, bao bì màng ghép phức hợp, túi đựng gạo, bao phân bón, túi siêu thị.",
     packaging: "Thùng 18kg / Phuy 180kg",
     image: "https://admin.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink2.webp",
+    targetUrl: "/gia-muc-in-ong-dong-va-huong-dan-chon-muc-chat-luong",
+    buttonLabel: "Xem Báo Giá & Tư Vấn Chọn Mực",
   },
   {
     id: "p4",
@@ -222,6 +230,8 @@ export const PRODUCTS: ProductItem[] = [
     packaging: "Chai 1 lít / Can 5 lít / Thùng 25kg",
     image: "https://admin.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink3.webp",
     badge: "Cao cấp",
+    targetUrl: "/san-pham/muc-in-chai-lo-my-pham",
+    buttonLabel: "Xem Chi Tiết Sản Phẩm",
   },
   {
     id: "p5",
@@ -239,6 +249,8 @@ export const PRODUCTS: ProductItem[] = [
     applications: "Xưởng in ống đồng bao bì, xưởng pha chế dung môi, nhà máy sản xuất sơn.",
     packaging: "Bộ máy tiêu chuẩn kèm ống hút, van điều áp",
     image: "https://admin.mucinbaobi.com/wp-content/uploads/2025/08/may-bom-chiet-rot-muc-tu-phuy-vuong-phat-ink.webp",
+    targetUrl: "/may-bom-chiet-rot-muc-tu-phuy-giai-phap-toi-uu-cho-nganh-in-ong-dong-vuong-phat-ink",
+    buttonLabel: "Xem Chi Tiết Máy Bơm Phuy",
   },
   {
     id: "p6",
@@ -256,5 +268,45 @@ export const PRODUCTS: ProductItem[] = [
     applications: "Pha mực in flexo, ống đồng, vệ sinh máng mực, con lăn, trục in.",
     packaging: "Can 20L / Phuy 200L / Tank 1000L",
     image: "https://admin.mucinbaobi.com/wp-content/uploads/2026/10/vuongphatink4.webp",
+    targetUrl: "/dung-moi-pha-muc-in-lua-va-1-so-luu-y",
+    buttonLabel: "Xem Hướng Dẫn Dung Môi",
+  },
+  {
+    id: "p7",
+    slug: "mang-pvc-co-ung-dung-uu-diem-va-quy-trinh-san-xuat",
+    name: "Màng PVC Co (Màng Co Nhiệt Tem Nhãn Thân Chai)",
+    category: "muc-in-ong-dong",
+    categoryName: "Màng in & Vật liệu",
+    description: "Vật liệu màng co nhiệt chất lượng cao dành cho in ống đồng nhãn chai nước giải khát, bình gas, thực phẩm đóng hộp với độ co rút chuẩn và bám dính mực tuyệt đối.",
+    features: [
+      "Tỷ lệ co rút đa hướng chuẩn xác, ôm sát thân chai",
+      "Bề mặt phẳng mịn, hấp thu mực in sắc nét",
+      "Độ bền kéo giãn tốt, không rách đứt khi luồn màng",
+      "Chịu nhiệt buồng sấy co màng mà không lem nhòe nét in",
+    ],
+    applications: "In tem nhãn thân chai nước suối, nước ngọt, hóa mỹ phẩm, bao màng nắp bình nước 20L.",
+    packaging: "Cuộn màng theo khổ yêu cầu (kg/cuộn)",
+    image: "https://admin.mucinbaobi.com/wp-content/uploads/2024/07/mang-pvc-co.webp",
+    targetUrl: "/mang-pvc-co-ung-dung-uu-diem-va-quy-trinh-san-xuat",
+    buttonLabel: "Xem Quy Trình Màng PVC Co",
+  },
+  {
+    id: "p8",
+    slug: "may-in-ong-dong-va-5-loai-may-in-truc-ong-dong",
+    name: "Máy In Trục Ống Đồng & 5 Dòng Máy Phổ Biến",
+    category: "may-bom-muc",
+    categoryName: "Máy móc ngành in",
+    description: "Tổng hợp kiến thức và giới thiệu 5 dòng máy in trục ống đồng (chồng màu điện tử, trục liền, máy in bao bì màng ghép) để phối hợp tối ưu với mực in Vượng Phát.",
+    features: [
+      "Tìm hiểu hệ thống cấp mực và sấy nhiệt tự động",
+      "Nguyên lý vận hành dao gạt mực (Doctor Blade)",
+      "Giải pháp in tốc độ cao không văng bắn mực",
+      "Tư vấn lựa chọn dòng máy in phù hợp quy mô xưởng",
+    ],
+    applications: "Các xưởng in bao bì màng nhựa dẻo, túi nhôm phức hợp và màng co nhiệt.",
+    packaging: "Tư vấn & chuyển giao công nghệ",
+    image: "https://admin.mucinbaobi.com/wp-content/uploads/2024/08/may-in-truc-ong-dong-chong-mau.webp",
+    targetUrl: "/may-in-ong-dong-va-5-loai-may-in-truc-ong-dong",
+    buttonLabel: "Xem 5 Loại Máy In Trục",
   },
 ];

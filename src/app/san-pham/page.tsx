@@ -49,15 +49,31 @@ export default function SanPhamPage() {
           ))}
         </div>
 
+        {/* Highlight Banner to /ung-dung */}
+        <div className="bg-gradient-to-r from-sky-900 via-slate-900 to-indigo-950 rounded-2xl p-4 sm:p-6 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-md border border-sky-800/40">
+          <div className="flex items-center gap-3.5">
+            <div className="w-10 h-10 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center shrink-0 border border-sky-500/30">
+              <Sparkles className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="font-bold text-sm sm:text-base text-white">Xem Thư Viện Ứng Dụng Mực In Bao Bì Thực Tế</h3>
+              <p className="text-xs text-slate-300">Hình ảnh bao bì thực phẩm, bánh kẹo, màng co lốc chai, túi nhôm in bằng mực Vượng Phát.</p>
+            </div>
+          </div>
+          <Link
+            href="/ung-dung"
+            className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs whitespace-nowrap text-center transition"
+          >
+            Khám Phá Ngay &rarr;
+          </Link>
+        </div>
+
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {PRODUCTS.map((prod) => {
-            const hasDedicatedPage =
-              prod.slug === "muc-in-ong-dong-vuong-phat" ||
-              prod.slug === "muc-in-chai-lo-my-pham";
-            const detailHref = hasDedicatedPage
-              ? `/san-pham/${prod.slug}`
-              : `/lien-he?product=${encodeURIComponent(prod.name)}`;
+            const detailHref = prod.targetUrl || `/san-pham/${prod.slug}`;
+            const buttonText = prod.buttonLabel || "Xem Chi Tiết";
+            const isArticle = !detailHref.startsWith("/san-pham/");
 
             return (
               <div
@@ -120,28 +136,23 @@ export default function SanPhamPage() {
                 </div>
 
                 <div className="p-6 pt-0 border-t border-slate-100 mt-4 flex items-center gap-2">
-                  {hasDedicatedPage ? (
-                    <Link
-                      href={detailHref}
-                      className="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-center text-xs transition shadow-sm"
-                    >
-                      Xem Chi Tiết
-                    </Link>
-                  ) : (
-                    <Link
-                      href={detailHref}
-                      className="flex-1 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-semibold text-center text-xs transition shadow-sm"
-                    >
-                      Nhận Báo Giá
-                    </Link>
-                  )}
+                  <Link
+                    href={detailHref}
+                    className={`flex-1 py-3 rounded-xl font-semibold text-center text-xs transition shadow-sm ${
+                      isArticle
+                        ? "bg-sky-50 text-sky-700 hover:bg-sky-600 hover:text-white border border-sky-200/80"
+                        : "bg-slate-900 hover:bg-slate-800 text-white"
+                    }`}
+                  >
+                    {buttonText}
+                  </Link>
                   <a
                     href={`https://zalo.me/0947676021?text=${encodeURIComponent(`Tôi muốn nhận báo giá sản phẩm: ${prod.name}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-3 rounded-xl bg-blue-50 text-sky-700 hover:bg-sky-600 hover:text-white font-semibold text-xs transition border border-sky-100"
+                    className="px-4 py-3 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 font-semibold text-xs transition border border-slate-200"
                   >
-                    Chat Zalo
+                    Báo giá
                   </a>
                 </div>
               </div>
