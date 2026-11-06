@@ -30,13 +30,13 @@ export const metadata: Metadata = {
     "Vượng Phát Ink",
   ],
   alternates: {
-    canonical: "https://mucinbaobi.com/san-pham/muc-in-chai-lo-my-pham",
+    canonical: "https://www.mucinbaobi.com/san-pham/muc-in-chai-lo-my-pham",
   },
   openGraph: {
     title: "Mực In Chai Lọ Mỹ Phẩm (Solvent Dye) | Vượng Phát Ink",
     description:
       "Tinh màu Solvent Dye tạo màu trong suốt cho chai lọ thủy tinh, mỹ phẩm và đồ gỗ cao cấp. Màu sắc lộng lẫy, độ bóng gương, bền vững dưới ánh sáng mặt trời.",
-    url: "https://mucinbaobi.com/san-pham/muc-in-chai-lo-my-pham",
+    url: "https://www.mucinbaobi.com/san-pham/muc-in-chai-lo-my-pham",
     type: "website",
   },
 };

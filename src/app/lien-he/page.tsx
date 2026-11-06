@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Liên Hệ Báo Giá Mực In & Dung Môi | Vượng Phát Ink",
   description:
     "Liên hệ Công ty TNHH Vượng Phát Ink: 60 Nguyễn Thông, Phường Nhiêu Lộc, TP. Hồ Chí Minh. Hotline / Zalo: 094 76 76 021. Email: info@mucinbaobi.com.",
+  alternates: {
+    canonical: "https://www.mucinbaobi.com/lien-he",
+  },
 };
 
 export default function LienHePage() {

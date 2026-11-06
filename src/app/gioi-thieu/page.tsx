@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Giới thiệu Công ty TNHH Vượng Phát Ink",
   description:
     "Nhà sản xuất dung môi, mực in bao bì hàng đầu Việt Nam. Vượng Phát Ink chuyên cung cấp giải pháp mực in ống đồng, dung môi và tinh màu theo công nghệ Đài Loan.",
+  alternates: {
+    canonical: "https://www.mucinbaobi.com/gioi-thieu",
+  },
 };
 
 export default function GioiThieuPage() {

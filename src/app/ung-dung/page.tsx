@@ -16,11 +16,14 @@ export const metadata: Metadata = {
     "tinh màu solvent dye mỹ phẩm",
     "Vượng Phát Ink",
   ],
+  alternates: {
+    canonical: "https://www.mucinbaobi.com/ung-dung",
+  },
   openGraph: {
     title: "Ứng Dụng Mực In Ống Đồng Đột Phá | Vượng Phát Ink",
     description:
       "Giải pháp toàn diện cho bao bì nhựa, màng co PVC, giấy kraft và mỹ phẩm. Công nghệ chuyển giao từ Đài Loan, chuẩn xuất khẩu Châu Âu.",
-    url: "https://mucinbaobi.com/ung-dung",
+    url: "https://www.mucinbaobi.com/ung-dung",
   },
 };
 

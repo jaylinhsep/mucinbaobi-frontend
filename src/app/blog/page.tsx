@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Tin Tức & Kỹ Thuật In Ấn Ống Đồng | Vượng Phát Ink",
   description:
     "Chia sẻ kinh nghiệm kỹ thuật ngành in ấn bao bì: xử lý corona màng, dung môi pha mực, linh kiện máy in ống đồng, màng PVC co, mực in Non-Toluene.",
+  alternates: {
+    canonical: "https://www.mucinbaobi.com/blog",
+  },
 };
 
 export default async function BlogPage() {

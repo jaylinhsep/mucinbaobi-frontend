@@ -34,17 +34,17 @@ export const metadata: Metadata = {
     "Vượng Phát Ink",
   ],
   alternates: {
-    canonical: "https://mucinbaobi.com/san-pham/muc-in-ong-dong-vuong-phat",
+    canonical: "https://www.mucinbaobi.com/san-pham/muc-in-ong-dong-vuong-phat",
   },
   openGraph: {
     title: "Mực In Ống Đồng Vượng Phát | Vượng Phát Ink",
     description:
       "Chuyên sản xuất mực in ống đồng cao cấp trên màng nhựa PP, PE, PVC co, PET, OPP. Độ bám dính cao, màu sắc tươi sáng, bền màu và tiết kiệm mực.",
-    url: "https://mucinbaobi.com/san-pham/muc-in-ong-dong-vuong-phat",
+    url: "https://www.mucinbaobi.com/san-pham/muc-in-ong-dong-vuong-phat",
     type: "website",
     images: [
       {
-        url: "/muc-in-ong-dong-vuong-phat-chinh.jpg",
+        url: "https://www.mucinbaobi.com/muc-in-ong-dong-vuong-phat-chinh.jpg",
         width: 768,
         height: 1024,
         alt: "Thùng can mực in ống đồng Vượng Phát Ink sản xuất thực tế tại xưởng",

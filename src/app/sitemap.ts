@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { getPosts } from "@/lib/wp";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://mucinbaobi.com";
+  const baseUrl = "https://www.mucinbaobi.com";
   const posts = await getPosts();
 
   const postUrls: MetadataRoute.Sitemap = posts.map((post) => ({

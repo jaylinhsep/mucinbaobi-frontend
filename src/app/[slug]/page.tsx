@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .replace(/&nbsp;/g, " ")
     .slice(0, 160);
 
-  const canonicalUrl = `https://mucinbaobi.com/${slug}`;
+  const canonicalUrl = `https://www.mucinbaobi.com/${slug}`;
 
   return {
     title: `${post.title.rendered} | Vượng Phát Ink`,

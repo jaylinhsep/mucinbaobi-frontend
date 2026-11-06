@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Danh Mục Sản Phẩm Mực In & Dung Môi | Vượng Phát Ink",
   description:
     "Tổng hợp các sản phẩm mực in ống đồng màng PE, PP, PVC co, PET, mực Non-Toluene, tinh màu Solvent Dye chai lọ mỹ phẩm, máy bơm chiết rót mực từ phuy.",
+  alternates: {
+    canonical: "https://www.mucinbaobi.com/san-pham",
+  },
 };
 
 export default function SanPhamPage() {

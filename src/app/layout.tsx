@@ -11,7 +11,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mucinbaobi.com"),
+  metadataBase: new URL("https://www.mucinbaobi.com"),
+  alternates: {
+    canonical: "https://www.mucinbaobi.com",
+  },
   title: {
     default: "Mực in bao bì nhựa Vượng Phát Ink | Nhà sản xuất mực in ống đồng & dung môi",
     template: "%s | Vượng Phát Ink",
@@ -33,7 +36,7 @@ export const metadata: Metadata = {
     title: "Mực in bao bì nhựa Vượng Phát Ink | Nhà sản xuất dung môi & mực in ống đồng",
     description:
       "Chuyên cung cấp mực in ống đồng, tinh màu Solvent Dye và dung môi ngành in theo công nghệ Đài Loan, đạt chuẩn Châu Âu.",
-    url: "https://mucinbaobi.com",
+    url: "https://www.mucinbaobi.com",
     siteName: "Vượng Phát Ink",
     locale: "vi_VN",
     type: "website",
